@@ -12,6 +12,7 @@ permalink: /kennis/index.html
   <meta property="og:url" content="{{ site.domain }}/kennis/">
   <meta property="og:title" content="Kennis, De Changency">
   <meta property="og:description" content="Artikelen over IT-adoptie, digitale vaardigheden en verandering die landt bij medewerkers.">
+  <meta property="og:image" content="{{ site.ogDefault }}">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="De Changency">
   <link rel="canonical" href="{{ site.domain }}/kennis/">
@@ -34,30 +35,53 @@ permalink: /kennis/index.html
     <section id="kennis-artikelen">
       {% if posts.length %}
 
+      {# Unieke labels voor de filterbalk #}
+      {% set labelList = [] %}
+      {% for p in posts %}
+        {% if p.labelSlug %}
+          {% set seen = false %}
+          {% for l in labelList %}{% if l.slug == p.labelSlug %}{% set seen = true %}{% endif %}{% endfor %}
+          {% if not seen %}{% set labelList = (labelList.push({ slug: p.labelSlug, name: p.label }), labelList) %}{% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if posts.length > 1 and labelList.length %}
+      <div class="kennis-filter" role="group" aria-label="Filter artikelen op label">
+        <button type="button" class="actief" data-filter="alle">Alle artikelen</button>
+        {% for l in labelList %}
+        <button type="button" data-filter="{{ l.slug }}">{{ l.name }}</button>
+        {% endfor %}
+      </div>
+      {% endif %}
+
       {% set featured = posts[0] %}
-      <a href="{{ featured.url }}" class="kennis-featured">
+      <a href="{{ featured.url }}" class="kennis-featured{% if featured.image %} has-cover{% endif %}" data-label="{{ featured.labelSlug }}">
         <div class="kennis-featured-text">
-          <p class="kennis-tag">{% if featured.tags.length %}{{ featured.tags[0] | replace("-", " ") }}{% else %}Uitgelicht{% endif %}</p>
+          <p class="kennis-tag">{{ featured.label or "Uitgelicht" }}</p>
           <h2>{{ featured.title }}{% if featured.isDraft %} (concept){% endif %}</h2>
           <p>{{ featured.description }}</p>
           <span class="kennis-meta">{{ featured.readingTime }} min leestijd</span>
           <span class="kennis-lees">Lees het artikel →</span>
         </div>
-        <div class="kennis-cover kennis-cover-v{{ featured.coverVariant }}">
-          {% set coverImage = featured.image %}{% set coverVariant = featured.coverVariant %}{% include "kennis-cover.njk" %}
+        {% if featured.image %}
+        <div class="kennis-cover">
+          <img src="/kennis/{{ featured.image }}" alt="">
         </div>
+        {% endif %}
       </a>
 
       {% if posts.length > 1 %}
       <div class="kennis-grid">
         {% for post in posts %}
         {% if not loop.first %}
-        <a href="{{ post.url }}" class="kennis-card">
-          <div class="kennis-cover kennis-cover-v{{ post.coverVariant }}">
-            {% set coverImage = post.image %}{% set coverVariant = post.coverVariant %}{% include "kennis-cover.njk" %}
+        <a href="{{ post.url }}" class="kennis-card" data-label="{{ post.labelSlug }}">
+          {% if post.image %}
+          <div class="kennis-cover">
+            <img src="/kennis/{{ post.image }}" alt="">
           </div>
+          {% endif %}
           <div class="kennis-card-body">
-            <p class="kennis-tag">{% if post.tags.length %}{{ post.tags[0] | replace("-", " ") }}{% else %}Kennis{% endif %}</p>
+            <p class="kennis-tag">{{ post.label or "Kennis" }}</p>
             <h3>{{ post.title }}{% if post.isDraft %} (concept){% endif %}</h3>
             <p>{{ post.description }}</p>
             <span class="kennis-meta">{{ post.readingTime }} min leestijd</span>
@@ -81,5 +105,18 @@ permalink: /kennis/index.html
         {{ site.ctaDefault.text }}
       </a>
     </section>
+
+    <script>
+    document.querySelectorAll('.kennis-filter button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.kennis-filter button').forEach(function (b) { b.classList.remove('actief'); });
+            btn.classList.add('actief');
+            var f = btn.getAttribute('data-filter');
+            document.querySelectorAll('[data-label]').forEach(function (el) {
+                el.style.display = (f === 'alle' || el.getAttribute('data-label') === f) ? '' : 'none';
+            });
+        });
+    });
+    </script>
 
 {% endblock %}

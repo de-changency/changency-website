@@ -35,6 +35,7 @@ eleventyExcludeFromCollections: true
     "description": {{ post.description | dump | safe }},
     "datePublished": "{{ post.dateISO }}",
     "inLanguage": "nl",
+    {% if post.label %}"articleSection": {{ post.label | dump | safe }},{% endif %}
     {% if post.imageUrl %}"image": "{{ post.imageUrl }}",{% endif %}
     "url": "{{ post.absoluteUrl }}",
     "mainEntityOfPage": "{{ post.canonicalUrl }}",
@@ -57,12 +58,14 @@ eleventyExcludeFromCollections: true
     <section class="legal-page kennis-article">
       <div class="legal-document">
         <a href="/kennis/" class="kennis-backlink">← Alle artikelen</a>
-        <p class="label">{% if post.tags.length %}{{ post.tags[0] | replace("-", " ") }}{% else %}Kennis{% endif %}</p>
+        <p class="label">{{ post.label or "Kennis" }}</p>
         <h1>{{ post.title }}</h1>
         <p class="kennis-article-meta">{{ post.readingTime }} min leestijd · door Ilse Polak</p>
-        <div class="kennis-cover kennis-cover-v{{ post.coverVariant }} kennis-article-banner">
-          {% set coverImage = post.image %}{% set coverVariant = post.coverVariant %}{% include "kennis-cover.njk" %}
+        {% if post.image %}
+        <div class="kennis-cover kennis-article-banner">
+          <img src="/kennis/{{ post.image }}" alt="">
         </div>
+        {% endif %}
         {{ post.html | safe }}
 
         <div class="kennis-reageer">
