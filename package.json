@@ -1,0 +1,15 @@
+{
+  "name": "changency-website",
+  "private": true,
+  "description": "De Changency marketingsite — statische pagina's + Eleventy-build voor /kennis/",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "serve:drafts": "SHOW_DRAFTS=1 eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  }
+}

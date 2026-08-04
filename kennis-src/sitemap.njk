@@ -1,0 +1,36 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{%- set primaryPosts = [] -%}
+{%- for post in posts -%}
+  {%- if post.isPrimary and not post.isDraft -%}
+    {%- set primaryPosts = (primaryPosts.push(post), primaryPosts) -%}
+  {%- endif -%}
+{%- endfor -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in site.pages %}
+  <url>
+    <loc>{{ site.domain }}{{ page.url }}</loc>
+    <changefreq>{{ page.changefreq }}</changefreq>
+    <priority>{{ page.priority }}</priority>
+  </url>
+{%- endfor %}
+  <url>
+    <loc>{{ site.domain }}/kennis/</loc>
+    {%- if primaryPosts.length %}
+    <lastmod>{{ primaryPosts[0].dateISO }}</lastmod>
+    {%- endif %}
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- for post in primaryPosts %}
+  <url>
+    <loc>{{ post.absoluteUrl }}</loc>
+    <lastmod>{{ post.dateISO }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{%- endfor %}
+</urlset>

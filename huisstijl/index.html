@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huisstijl — De Changency</title>
+  <meta name="description" content="Huisstijlrichtlijnen De Changency: logo, kleuren, typografie en toepassing voor web en andere media.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #8B3A62;
+      --color-primary-light: #A85080;
+      --color-saar-pink: #EC4899;
+      --color-saar-pink-dark: #BE185D;
+      --color-saar-pink-soft: #FBCFE8;
+      --color-accent: #D4A0B0;
+      --color-accent-light: #E8C8D2;
+      --color-dark: #3D1F2E;
+      --color-text: #2D2D2D;
+      --color-text-light: #6B6B6B;
+      --color-bg: #FAFAF8;
+      --color-bg-alt: #F3F0EE;
+      --color-border: #E5E0DC;
+      --color-white: #FFFFFF;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    @media (min-width: 900px) {
+      .doc { padding: 3.5rem 2rem 5rem; }
+    }
+
+    .cover {
+      border-bottom: 3px solid var(--color-primary);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      color: var(--color-dark);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin: 2.75rem 0 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--color-border);
+      letter-spacing: -0.01em;
+    }
+
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--color-dark);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    p { margin: 0 0 1rem; }
+    ul, ol { margin: 0 0 1rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+
+    a { color: var(--color-primary); }
+    a:hover { color: var(--color-primary-light); }
+
+    .meta-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    .meta-box strong { color: var(--color-dark); }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .swatch {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-white);
+    }
+
+    .swatch-color {
+      height: 72px;
+    }
+
+    .swatch-info {
+      padding: 0.65rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .swatch-name {
+      font-weight: 600;
+      color: var(--color-dark);
+      display: block;
+    }
+
+    .swatch-hex {
+      font-family: ui-monospace, monospace;
+      color: var(--color-text-light);
+      font-size: 0.72rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--color-dark);
+      background: var(--color-bg-alt);
+    }
+
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .logo-row img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo-on-dark {
+      background: var(--color-dark);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+    }
+
+    .logo-on-dark img { height: 36px; filter: brightness(0) invert(1); }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      border-left: 3px solid var(--color-accent);
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+
+    .type-sample-heading {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-dark);
+      line-height: 1.2;
+      margin: 1rem 0 0.25rem;
+    }
+
+    .type-sample-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      max-width: 38em;
+    }
+
+    .btn-demo {
+      display: inline-block;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    .export-tip {
+      background: linear-gradient(135deg, var(--color-saar-pink-soft) 0%, var(--color-bg-alt) 100%);
+      border: 1px solid var(--color-saar-pink-soft);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .export-tip h3 { margin-top: 0; color: var(--color-saar-pink-dark); }
+
+    footer.doc-foot {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+    }
+
+    @media print {
+      body { background: white; }
+      .doc { max-width: none; padding: 0.5cm 1cm; }
+      h2 { page-break-after: avoid; }
+      .swatch-grid { break-inside: avoid; }
+      .export-tip { background: #f5f0f3; border-color: #ddd; }
+      a { color: var(--color-dark); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="doc">
+    <header class="cover">
+      <span class="cover-badge">Huisstijlrichtlijnen</span>
+      <h1>De Changency</h1>
+      <p class="subtitle">IT-adoptie en digitale vaardigheden — richtlijnen voor logo, kleur, typografie en toepassing op web, print en presentaties.</p>
+    </header>
+
+    <p>Dit document is afgeleid van de levende website <strong>www.de-changency.nl</strong> en de design tokens in de codebase (<code>css/variables.css</code>). Gebruik het als referentie voor consistente uitstraling bij nieuwe uitingen.</p>
+
+    <h2>1. Merkidentiteit</h2>
+    <div class="meta-box">
+      <p style="margin-bottom:0.5rem"><strong>Handelsnaam:</strong> De Changency</p>
+      <p style="margin-bottom:0.5rem"><strong>Domein / website:</strong> https://www.de-changency.nl/</p>
+      <p style="margin:0"><strong>Kern:</strong> adoptie van IT-systemen en versterken van digitale vaardigheden voor woningcorporaties en maatschappelijke organisaties — eerst meten waar mensen staan, dan de aanpak bouwen.</p>
+    </div>
+
+    <h2>2. Logo</h2>
+    <h3>Primaire versie</h3>
+    <p>Het hoofdlogo staat in de map <code>images/logo.png</code>. Gebruik altijd het originele bestand; niet rekken, niet bijsnijden tot het woordmerk onleesbaar wordt, en geen schaduwen of effecten toevoegen tenzij een ontwerper dat expliciet voor een campagne ontwerpt.</p>
+
+    <div class="logo-row">
+      <img src="../images/logo.png" alt="De Changency logo">
+      <div>
+        <strong>Web (header)</strong><br>
+        Referentiehoogte: 34 px (variabele <code>--logo-img-height</code>). Breedte schaalt proportioneel.
+      </div>
+    </div>
+
+    <h3>Favicon</h3>
+    <p>Voor browser-tabbladen en snelkoppelingen: <code>images/favicon.png</code>.</p>
+
+    <h3>Ruimte rond het logo</h3>
+    <p>Hanteer vrije ruimte rondom het logo van minimaal ongeveer de halve hoogte van het logo (of de hoogte van de capitals in het woordmerk). Plaats het logo niet tegen drukke randen of op visueel concurrerende achtergronden.</p>
+
+    <h3>Donkere achtergrond</h3>
+    <p>De site gebruikt het logo op lichte achtergronden. Voor donkere dragers is een lichte of witte variant nodig — laat die door een ontwerper exporteren vanuit de bronvector, of gebruik een geïnverteerde versie alleen na controle op leesbaarheid.</p>
+    <div class="logo-on-dark">
+      <img src="../images/logo.png" alt="">
+    </div>
+    <p class="note">De witte weergave hierboven is ter illustratie (filter); voor productie liever een officieel wit logo-bestand.</p>
+
+    <h2>3. Kleurenpalet</h2>
+    <p>Alle waarden hieronder zijn de canonieke hex-codes uit het design system.</p>
+
+    <h3>Merklagen (primair)</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#8B3A62"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Primair</span>
+          <span class="swatch-hex">#8B3A62<br>CTA’s, links, accenten</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#A85080"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Primair licht</span>
+          <span class="swatch-hex">#A85080<br>Hover, secundaire nadruk</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3D1F2E"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Donker</span>
+          <span class="swatch-hex">#3D1F2E<br>Koppen, navigatietekst</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Accent &amp; ondersteuning</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4A0B0"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Accent</span>
+          <span class="swatch-hex">#D4A0B0</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8C8D2"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Accent licht</span>
+          <span class="swatch-hex">#E8C8D2</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>SAAR (productaccent)</h3>
+    <p>Op de site worden roze tinten gebruikt voor SAAR-gerelateerde onderdelen (bijv. labels en highlights). Gebruik dit palet voor die context, niet willekeurig als tweede huisstijl.</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EC4899"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">SAAR roze</span>
+          <span class="swatch-hex">#EC4899</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#BE185D"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">SAAR roze donker</span>
+          <span class="swatch-hex">#BE185D<br>Tekst op zacht roze</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FBCFE8"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">SAAR zacht</span>
+          <span class="swatch-hex">#FBCFE8<br>Achtergronden</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Neutraal</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2D2D2D"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Tekst</span>
+          <span class="swatch-hex">#2D2D2D</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6B6B6B"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Tekst licht</span>
+          <span class="swatch-hex">#6B6B6B<br>Secundaire tekst</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAFAF8;border-bottom:1px solid #eee"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Achtergrond</span>
+          <span class="swatch-hex">#FAFAF8</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F3F0EE"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Achtergrond alt.</span>
+          <span class="swatch-hex">#F3F0EE<br>Afwisselende secties</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E5E0DC"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Rand</span>
+          <span class="swatch-hex">#E5E0DC</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #E5E0DC"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Wit</span>
+          <span class="swatch-hex">#FFFFFF</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>RGB (voor drukwerk en Office)</h3>
+    <table>
+      <thead>
+        <tr><th>Naam</th><th>Hex</th><th>RGB</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Primair</td><td>#8B3A62</td><td>139, 58, 98</td></tr>
+        <tr><td>Primair licht</td><td>#A85080</td><td>168, 80, 128</td></tr>
+        <tr><td>Donker (koppen)</td><td>#3D1F2E</td><td>61, 31, 46</td></tr>
+        <tr><td>Tekst</td><td>#2D2D2D</td><td>45, 45, 45</td></tr>
+        <tr><td>Achtergrond</td><td>#FAFAF8</td><td>250, 250, 248</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Voor professioneel drukwerk: vraag een drukker naar CMYK- of PMS-profielen op basis van deze RGB/hex; scherm en papier wijken altijd iets af.</p>
+
+    <h2>4. Typografie</h2>
+    <h3>Families</h3>
+    <table>
+      <thead>
+        <tr><th>Rol</th><th>Font</th><th>Gewichten (website)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Koppen (H1–H6)</td><td>Plus Jakarta Sans</td><td>600 (semibold), 700 (bold)</td></tr>
+        <tr><td>Body, UI, knoppen</td><td>Inter</td><td>400, 500, 600</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Google Fonts (zelfde subset als de site):</strong><br>
+    <a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans">Plus Jakarta Sans</a> — 600, 700<br>
+    <a href="https://fonts.google.com/specimen/Inter">Inter</a> — 400, 500, 600</p>
+
+    <div class="type-sample-heading">Kop: Plus Jakarta Sans Bold</div>
+    <p class="type-sample-body">Lopende tekst gebruikt Inter, regelafstand ongeveer 1,65–1,7 voor goede leesbaarheid op het web. Op A4 in Word of Google Docs: Inter 11–12 pt voor body, Plus Jakarta Sans 14–24 pt voor titels, afhankelijk van hiërarchie.</p>
+
+    <h3>Typografische details (web)</h3>
+    <ul>
+      <li>H1: lichte negatieve letterspacing (<code>-0.02em</code>); H2: <code>-0.01em</code></li>
+      <li>Schalen: mobiel first; desktop H1 tot ca. 48 px (<code>--fs-4xl</code>)</li>
+      <li><strong>Vet</strong> in tekst: semibold (600), niet overmatig gebruiken</li>
+    </ul>
+
+    <h2>5. UI &amp; vormtaal</h2>
+    <h3>Knoppen en calls-to-action</h3>
+    <p>Primaire knop: gevulde achtergrond primair (#8B3A62), witte tekst, afgeronde hoeken 8 px, voldoende padding (bijv. 14×28 px voor grote hero-CTA, 10×20 px in de header).</p>
+    <span class="btn-demo">Voorbeeld primaire knop</span>
+
+    <h3>Hoeken en schaduw</h3>
+    <ul>
+      <li>Standaard radius: <strong>8 px</strong> (<code>--border-radius</code>)</li>
+      <li>Grote beelden / kaarten: <strong>12 px</strong> (<code>--border-radius-lg</code>)</li>
+      <li>Schaduwen: subtiel (bijv. <code>0 4px 12px rgba(0,0,0,0.08)</code>); geen zware dropshadows tenzij voor speciale componenten</li>
+    </ul>
+
+    <h3>Focus en toegankelijkheid</h3>
+    <p>Interactieve elementen: zichtbare focusring 2 px in primair magenta, voldoende offset. Houd dit ook in acht bij PDF’s met links en bij gepubliceerde documenten.</p>
+
+    <h2>6. Toon en taal</h2>
+    <ul>
+      <li>Taal: <strong>Nederlands</strong> als primaire doeltaal op de site.</li>
+      <li>Toon: professioneel, helder, mensgericht — verbinding tussen digitalisering en medewerkers centraal.</li>
+      <li>Vermijd jargon zonder uitleg; leg uit wat u meet en waarom dat helpt.</li>
+    </ul>
+
+    <h2>7. Andere media (checklist)</h2>
+    <ul>
+      <li><strong>PowerPoint / Keynote:</strong> titels in Plus Jakarta Sans, body in Inter; achtergrond #FAFAF8 of wit; accenten met #8B3A62.</li>
+      <li><strong>Word / PDF:</strong> embed fonts of gebruik systeemfallbacks (Calibri alleen als noodoplossing; liever fonts installeren).</li>
+      <li><strong>E-mailhandtekening:</strong> beperk tot webveilige stacks of kleine afbeelding voor logo; tekstkleur #2D2D2D of #3D1F2E, link #8B3A62.</li>
+      <li><strong>Social / advertenties:</strong> zelfde primair en donkerbruin voor herkenning; SAAR-roze alleen in SAAR-context.</li>
+    </ul>
+
+    <div class="export-tip">
+      <h3>Exporteren als PDF</h3>
+      <p style="margin:0">Open dit bestand lokaal in de browser (dubbelklik of via een lokale server). Kies <strong>Archief → Print → PDF opslaan</strong> (macOS) of <strong>Print → Microsoft Print to PDF</strong> (Windows). Zet eventueel marges op “standaard” en schakel achtergrondgrafiek in voor kleurstaaltjes.</p>
+    </div>
+
+    <footer class="doc-foot">
+      De Changency — huisstijlrichtlijnen, afgestemd op de website en <code>css/variables.css</code>. Bij twijfel: de live site is leidend; werk dit document bij wanneer tokens wijzigen.
+    </footer>
+  </article>
+</body>
+</html>

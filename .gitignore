@@ -1,1 +1,6 @@
 .DS_Store
+node_modules/
+_site/
+
+# CI-checkout van de content-repo
+blog-content/

@@ -1,0 +1,33 @@
+---
+permalink: /kennis/feed.xml
+eleventyExcludeFromCollections: true
+---
+{%- set feedPosts = [] -%}
+{%- for post in posts -%}
+  {%- if post.isPrimary and not post.isDraft -%}
+    {%- set feedPosts = (feedPosts.push(post), feedPosts) -%}
+  {%- endif -%}
+{%- endfor -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name }} — Kennis</title>
+  <subtitle>Artikelen over IT-adoptie, digitale vaardigheden en verandering die landt</subtitle>
+  <link href="{{ site.domain }}/kennis/feed.xml" rel="self"/>
+  <link href="{{ site.domain }}/kennis/"/>
+  <id>{{ site.domain }}/kennis/</id>
+  <updated>{% if feedPosts.length %}{{ feedPosts[0].dateRFC3339 }}{% else %}2026-01-01T00:00:00.000Z{% endif %}</updated>
+  <author>
+    <name>Ilse Polak</name>
+  </author>
+{%- for post in feedPosts %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="{{ post.absoluteUrl }}"/>
+    <id>{{ post.absoluteUrl }}</id>
+    <published>{{ post.dateRFC3339 }}</published>
+    <updated>{{ post.dateRFC3339 }}</updated>
+    <summary>{{ post.description }}</summary>
+    <content type="html">{{ post.html }}</content>
+  </entry>
+{%- endfor %}
+</feed>

@@ -1,0 +1,89 @@
+---
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: "/kennis/{{ post.slug }}/index.html"
+eleventyExcludeFromCollections: true
+---
+{% extends "kennis-base.njk" %}
+
+{% block title %}{{ post.title }}, De Changency{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="{{ post.description }}">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ post.absoluteUrl }}">
+  <meta property="og:title" content="{{ post.title }}, De Changency">
+  <meta property="og:description" content="{{ post.description }}">
+  {% if post.imageUrl or site.ogDefault %}
+  <meta property="og:image" content="{{ post.imageUrl or site.ogDefault }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ post.imageUrl or site.ogDefault }}">
+  {% endif %}
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="De Changency">
+  <meta property="article:published_time" content="{{ post.dateISO }}">
+  <link rel="canonical" href="{{ post.canonicalUrl }}">
+  <link rel="alternate" type="application/atom+xml" title="De Changency — Kennis" href="/kennis/feed.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ post.title | dump | safe }},
+    "description": {{ post.description | dump | safe }},
+    "datePublished": "{{ post.dateISO }}",
+    "inLanguage": "nl",
+    {% if post.imageUrl %}"image": "{{ post.imageUrl }}",{% endif %}
+    "url": "{{ post.absoluteUrl }}",
+    "mainEntityOfPage": "{{ post.canonicalUrl }}",
+    "author": {
+      "@type": "Person",
+      "name": "Ilse Polak"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.name }}",
+      "url": "{{ site.domain }}"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block content %}
+
+    <!-- ARTIKEL -->
+    <section class="legal-page kennis-article">
+      <div class="legal-document">
+        <a href="/kennis/" class="kennis-backlink">← Alle artikelen</a>
+        <p class="label">{% if post.tags.length %}{{ post.tags[0] | replace("-", " ") }}{% else %}Kennis{% endif %}</p>
+        <h1>{{ post.title }}</h1>
+        <p class="kennis-article-meta">{{ post.dateFormatted }} · {{ post.readingTime }} min leestijd · door Ilse Polak</p>
+        {% if post.image %}
+        <img src="/kennis/{{ post.image }}" alt="">
+        {% endif %}
+        {{ post.html | safe }}
+        {% if post.alsoOn %}
+        <p class="kennis-crosslink">
+          {% if post.isPrimary %}
+          Dit artikel is ook te lezen op <a href="{{ post.alsoOn.url }}" target="_blank" rel="noopener">{{ post.alsoOn.name }}</a>.
+          {% else %}
+          Dit artikel verscheen oorspronkelijk op <a href="{{ post.alsoOn.url }}" target="_blank" rel="noopener">{{ post.alsoOn.name }}</a>.
+          {% endif %}
+        </p>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <h2>Verder praten over wat dit voor jouw organisatie betekent?</h2>
+      {% set cta = post.cta or site.ctaDefault %}
+      <p>{{ site.ctaDefault.intro }}</p>
+      <a href="{{ cta.url }}" target="_blank" rel="noopener">
+        {{ cta.text }}
+      </a>
+    </section>
+
+{% endblock %}

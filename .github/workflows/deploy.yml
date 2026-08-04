@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+  repository_dispatch:
+    types: [content-updated]
 
 permissions:
   contents: read
@@ -24,13 +27,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout blog-content
+        uses: actions/checkout@v4
+        with:
+          repository: de-changency/blog-content
+          token: ${{ secrets.CONTENT_REPO_TOKEN }}
+          path: blog-content
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npx eleventy
+        env:
+          CONTENT_DIR: blog-content
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment

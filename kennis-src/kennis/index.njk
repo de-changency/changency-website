@@ -1,0 +1,60 @@
+---
+permalink: /kennis/index.html
+---
+{% extends "kennis-base.njk" %}
+
+{% block title %}Kennis, artikelen over IT-adoptie en digitale vaardigheden, De Changency{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Artikelen over IT-adoptie, digitale vaardigheden en verandering die landt bij medewerkers. Kennis en inzichten vanuit De Changency.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.domain }}/kennis/">
+  <meta property="og:title" content="Kennis, De Changency">
+  <meta property="og:description" content="Artikelen over IT-adoptie, digitale vaardigheden en verandering die landt bij medewerkers.">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="De Changency">
+  <link rel="canonical" href="{{ site.domain }}/kennis/">
+  <link rel="alternate" type="application/atom+xml" title="De Changency — Kennis" href="/kennis/feed.xml">
+{% endblock %}
+
+{% block content %}
+
+    <!-- INTRO -->
+    <section id="kennis-intro">
+      <p class="label">Kennis</p>
+      <h1>Kennis &amp; inzichten</h1>
+      <p>
+        Artikelen over IT-adoptie, digitale vaardigheden en verandering die landt
+        bij de mensen die ermee werken.
+      </p>
+    </section>
+
+    <!-- ARTIKELEN -->
+    <section id="kennis-artikelen">
+      {% if posts.length %}
+      <div class="cards">
+        {% for post in posts %}
+        <article>
+          <p class="kennis-card-meta">{{ post.dateFormatted }} · {{ post.readingTime }} min leestijd</p>
+          <h3>{{ post.title }}{% if post.isDraft %} (concept){% endif %}</h3>
+          <p>{{ post.description }}</p>
+          <a href="{{ post.url }}">Lees het artikel →</a>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>Er staan nog geen artikelen online. Kom binnenkort terug!</p>
+      {% endif %}
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <h2>Verder praten over wat dit voor jouw organisatie betekent?</h2>
+      <p>{{ site.ctaDefault.intro }}</p>
+      <a href="{{ site.ctaDefault.url }}" target="_blank" rel="noopener">
+        {{ site.ctaDefault.text }}
+      </a>
+    </section>
+
+{% endblock %}
