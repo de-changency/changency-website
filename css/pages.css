@@ -1861,12 +1861,21 @@ main > section:last-of-type#contact-grid .contact-booking {
     border-radius: var(--border-radius-lg);
 }
 
-.kennis-auteur img {
-    width: 64px;
-    height: 64px;
+.kennis-auteur-circle {
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
-    object-fit: cover;
+    background: #FCE7F3; /* zachte roze cirkel, zelfde uitsnede als contactpagina SAAR */
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+    overflow: hidden;
     flex-shrink: 0;
+}
+
+.kennis-auteur-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .kennis-auteur strong {

@@ -66,20 +66,24 @@ eleventyExcludeFromCollections: true
         {{ post.html | safe }}
 
         <div class="kennis-reageer">
-          <h3>Doorpraten over dit onderwerp?</h3>
-          <p>Reageren kan via LinkedIn — daar deel ik ook nieuwe artikelen en inzichten. Of stuur direct een bericht.</p>
+          <h3>Delen of doorpraten?</h3>
+          <p>Stuur dit artikel door naar een collega, of praat verder op LinkedIn — daar deel ik ook nieuwe artikelen en inzichten.</p>
           <div class="kennis-reageer-links">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.absoluteUrl | urlencode }}" target="_blank" rel="noopener">Deel op LinkedIn</a>
+            <a href="https://wa.me/?text={{ (post.title + " — " + post.absoluteUrl) | urlencode }}" target="_blank" rel="noopener">Deel via WhatsApp</a>
+            <a href="mailto:?subject={{ post.title | urlencode }}&body={{ ("Dit artikel is misschien interessant voor je: " + post.absoluteUrl) | urlencode }}">Mail naar een collega</a>
+            <a href="#" data-copy="{{ post.absoluteUrl }}">Kopieer link</a>
             <a href="https://www.linkedin.com/in/ilse-polak/" target="_blank" rel="noopener">Volg Ilse op LinkedIn</a>
-            <a href="mailto:ilse@de-changency.nl?subject=Reactie op: {{ post.title }}">Reageer via e-mail</a>
           </div>
         </div>
 
         <div class="kennis-auteur">
-          <img src="/images/ilse-avatar.png" alt="Ilse Polak">
+          <div class="kennis-auteur-circle">
+            <img src="/images/story-person.png" alt="Ilse Polak">
+          </div>
           <div>
             <strong>Ilse Polak</strong>
-            <p>Oprichter van De Changency en SAAR Insights. Helpt woningcorporaties en maatschappelijke organisaties bij IT-adoptie en het versterken van digitale vaardigheden.</p>
+            <p>Oprichter van De Changency en SAAR Insights. Helpt woningcorporaties bij IT-adoptie en het versterken van digitale vaardigheden, en bouwt met training en e-learning aan lerende organisaties.</p>
           </div>
         </div>
 
@@ -104,5 +108,16 @@ eleventyExcludeFromCollections: true
         {{ cta.text }}
       </a>
     </section>
+
+    <script>
+    document.querySelectorAll('[data-copy]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(el.getAttribute('data-copy')).then(function () {
+                el.textContent = 'Link gekopieerd ✓';
+            });
+        });
+    });
+    </script>
 
 {% endblock %}
