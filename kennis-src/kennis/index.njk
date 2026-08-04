@@ -33,16 +33,41 @@ permalink: /kennis/index.html
     <!-- ARTIKELEN -->
     <section id="kennis-artikelen">
       {% if posts.length %}
-      <div class="cards">
+
+      {% set featured = posts[0] %}
+      <a href="{{ featured.url }}" class="kennis-featured">
+        <div class="kennis-featured-text">
+          <p class="kennis-tag">{% if featured.tags.length %}{{ featured.tags[0] | replace("-", " ") }}{% else %}Uitgelicht{% endif %}</p>
+          <h2>{{ featured.title }}{% if featured.isDraft %} (concept){% endif %}</h2>
+          <p>{{ featured.description }}</p>
+          <span class="kennis-meta">{{ featured.readingTime }} min leestijd</span>
+          <span class="kennis-lees">Lees het artikel →</span>
+        </div>
+        <div class="kennis-cover kennis-cover-v{{ featured.coverVariant }}">
+          {% set coverImage = featured.image %}{% set coverVariant = featured.coverVariant %}{% include "kennis-cover.njk" %}
+        </div>
+      </a>
+
+      {% if posts.length > 1 %}
+      <div class="kennis-grid">
         {% for post in posts %}
-        <article>
-          <p class="kennis-card-meta">{{ post.dateFormatted }} · {{ post.readingTime }} min leestijd</p>
-          <h3>{{ post.title }}{% if post.isDraft %} (concept){% endif %}</h3>
-          <p>{{ post.description }}</p>
-          <a href="{{ post.url }}">Lees het artikel →</a>
-        </article>
+        {% if not loop.first %}
+        <a href="{{ post.url }}" class="kennis-card">
+          <div class="kennis-cover kennis-cover-v{{ post.coverVariant }}">
+            {% set coverImage = post.image %}{% set coverVariant = post.coverVariant %}{% include "kennis-cover.njk" %}
+          </div>
+          <div class="kennis-card-body">
+            <p class="kennis-tag">{% if post.tags.length %}{{ post.tags[0] | replace("-", " ") }}{% else %}Kennis{% endif %}</p>
+            <h3>{{ post.title }}{% if post.isDraft %} (concept){% endif %}</h3>
+            <p>{{ post.description }}</p>
+            <span class="kennis-meta">{{ post.readingTime }} min leestijd</span>
+          </div>
+        </a>
+        {% endif %}
         {% endfor %}
       </div>
+      {% endif %}
+
       {% else %}
       <p>Er staan nog geen artikelen online. Kom binnenkort terug!</p>
       {% endif %}

@@ -59,11 +59,30 @@ eleventyExcludeFromCollections: true
         <a href="/kennis/" class="kennis-backlink">← Alle artikelen</a>
         <p class="label">{% if post.tags.length %}{{ post.tags[0] | replace("-", " ") }}{% else %}Kennis{% endif %}</p>
         <h1>{{ post.title }}</h1>
-        <p class="kennis-article-meta">{{ post.dateFormatted }} · {{ post.readingTime }} min leestijd · door Ilse Polak</p>
-        {% if post.image %}
-        <img src="/kennis/{{ post.image }}" alt="">
-        {% endif %}
+        <p class="kennis-article-meta">{{ post.readingTime }} min leestijd · door Ilse Polak</p>
+        <div class="kennis-cover kennis-cover-v{{ post.coverVariant }} kennis-article-banner">
+          {% set coverImage = post.image %}{% set coverVariant = post.coverVariant %}{% include "kennis-cover.njk" %}
+        </div>
         {{ post.html | safe }}
+
+        <div class="kennis-reageer">
+          <h3>Doorpraten over dit onderwerp?</h3>
+          <p>Reageren kan via LinkedIn — daar deel ik ook nieuwe artikelen en inzichten. Of stuur direct een bericht.</p>
+          <div class="kennis-reageer-links">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.absoluteUrl | urlencode }}" target="_blank" rel="noopener">Deel op LinkedIn</a>
+            <a href="https://www.linkedin.com/in/ilse-polak/" target="_blank" rel="noopener">Volg Ilse op LinkedIn</a>
+            <a href="mailto:ilse@de-changency.nl?subject=Reactie op: {{ post.title }}">Reageer via e-mail</a>
+          </div>
+        </div>
+
+        <div class="kennis-auteur">
+          <img src="/images/ilse-avatar.png" alt="Ilse Polak">
+          <div>
+            <strong>Ilse Polak</strong>
+            <p>Oprichter van De Changency en SAAR Insights. Helpt woningcorporaties en maatschappelijke organisaties bij IT-adoptie en het versterken van digitale vaardigheden.</p>
+          </div>
+        </div>
+
         {% if post.alsoOn %}
         <p class="kennis-crosslink">
           {% if post.isPrimary %}

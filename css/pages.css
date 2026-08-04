@@ -1586,12 +1586,160 @@ main > section:last-of-type#contact-grid .contact-booking {
     max-width: 620px;
 }
 
-.kennis-card-meta {
-    color: var(--color-text-light);
-    font-size: var(--fs-sm);
-    margin-bottom: var(--space-sm);
+/* ---- Covers (branded artwork per artikel) ---- */
+.kennis-cover {
+    position: relative;
+    overflow: hidden;
+    display: block;
 }
 
+.kennis-cover svg,
+.kennis-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kennis-cover-v1 { background: linear-gradient(135deg, #F3F0EE 0%, #E8C8D2 100%); }
+.kennis-cover-v2 { background: linear-gradient(135deg, #E8C8D2 0%, #D4A0B0 100%); }
+.kennis-cover-v3 { background: linear-gradient(135deg, #FAFAF8 0%, #F3F0EE 100%); }
+.kennis-cover-v4 { background: linear-gradient(135deg, #8B3A62 0%, #A85080 100%); }
+
+/* ---- Tag / meta ---- */
+.kennis-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.kennis-meta {
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+}
+
+/* ---- Featured artikel ---- */
+.kennis-featured {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: var(--space-2xl);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.kennis-featured:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+}
+
+.kennis-featured-text {
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-sm);
+    text-align: left;
+}
+
+.kennis-featured-text h2 {
+    color: var(--color-dark);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    line-height: 1.25;
+    margin: 0;
+}
+
+.kennis-featured-text > p:not(.kennis-tag) {
+    color: var(--color-text-light);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.kennis-featured-text .kennis-lees {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+}
+
+.kennis-featured .kennis-cover {
+    min-height: 250px;
+}
+
+/* ---- Kaartenraster ---- */
+.kennis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    text-align: left;
+}
+
+.kennis-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.kennis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+}
+
+.kennis-card .kennis-cover {
+    aspect-ratio: 16 / 8;
+}
+
+.kennis-card-body {
+    padding: var(--space-lg) var(--space-xl) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex: 1;
+}
+
+.kennis-card-body h3 {
+    color: var(--color-dark);
+    font-size: var(--fs-md);
+    line-height: 1.35;
+    margin: 0;
+}
+
+.kennis-card-body > p:not(.kennis-tag) {
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.kennis-card-body .kennis-meta {
+    margin-top: auto;
+    padding-top: var(--space-sm);
+}
+
+@media (max-width: 767px) {
+    .kennis-featured { grid-template-columns: 1fr; }
+    .kennis-featured .kennis-cover { min-height: 190px; order: -1; }
+    .kennis-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .kennis-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Artikelpagina ---- */
 .kennis-article .kennis-article-meta {
     color: var(--color-text-light);
     font-size: var(--fs-sm);
@@ -1602,9 +1750,10 @@ main > section:last-of-type#contact-grid .contact-booking {
     margin-bottom: var(--space-sm);
 }
 
-.kennis-article .kennis-intro-text {
-    font-size: var(--fs-md);
-    color: var(--color-text-light);
+.kennis-article-banner {
+    border-radius: var(--border-radius-lg);
+    aspect-ratio: 16 / 5;
+    margin-bottom: var(--space-xl);
 }
 
 .kennis-article ul {
@@ -1639,16 +1788,103 @@ main > section:last-of-type#contact-grid .contact-booking {
     margin-bottom: var(--space-md);
 }
 
-.kennis-crosslink {
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-border);
-    color: var(--color-text-light);
-    font-size: var(--fs-sm);
+.kennis-article blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 4px 0 4px 20px;
+    margin: var(--space-lg) 0;
+}
+
+.kennis-article blockquote p {
+    font-size: var(--fs-md);
+    font-style: italic;
+    margin-bottom: 0;
 }
 
 .kennis-backlink {
     display: inline-block;
     margin-bottom: var(--space-lg);
     font-weight: var(--fw-semibold);
+}
+
+/* ---- Reageren / delen ---- */
+.kennis-reageer {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.kennis-reageer h3 {
+    color: var(--color-dark);
+    font-size: var(--fs-md);
+    margin: 0 0 var(--space-xs);
+}
+
+.kennis-reageer p {
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+}
+
+.kennis-reageer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.kennis-reageer-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-text);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium, 500);
+    text-decoration: none;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.kennis-reageer-links a:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* ---- Auteur ---- */
+.kennis-auteur {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-bg-alt);
+    border-radius: var(--border-radius-lg);
+}
+
+.kennis-auteur img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.kennis-auteur strong {
+    display: block;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    margin-bottom: 2px;
+}
+
+.kennis-auteur p {
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.kennis-crosslink {
+    margin-top: var(--space-lg);
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
 }
