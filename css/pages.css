@@ -2030,3 +2030,7 @@ main > section:last-of-type#contact-grid .contact-booking {
 .kennis-featured:hover .kennis-lees {
     color: var(--color-primary-light);
 }
+
+.kennis-tag {
+    align-self: flex-start;
+}
