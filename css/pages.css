@@ -1972,3 +1972,12 @@ main > section:last-of-type#contact-grid .contact-booking {
     padding: 0;
     text-indent: 0;
 }
+
+.kennis-alle-artikelen {
+    margin-top: var(--space-lg);
+    margin-bottom: 0;
+}
+
+.kennis-alle-artikelen .kennis-backlink {
+    margin-bottom: 0;
+}

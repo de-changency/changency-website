@@ -110,19 +110,17 @@ eleventyExcludeFromCollections: true
 
         {% if post.alsoOn %}
         <p class="kennis-crosslink">
-          {% if post.isPrimary %}
           Dit artikel is ook te lezen op <a href="{{ post.alsoOn.url }}" target="_blank" rel="noopener">{{ post.alsoOn.name }}</a>.
-          {% else %}
-          Dit artikel verscheen oorspronkelijk op <a href="{{ post.alsoOn.url }}" target="_blank" rel="noopener">{{ post.alsoOn.name }}</a>.
-          {% endif %}
         </p>
         {% endif %}
+
+        <p class="kennis-alle-artikelen"><a href="/kennis/" class="kennis-backlink">← Alle artikelen</a></p>
       </div>
     </section>
 
     <!-- CTA -->
     <section id="cta">
-      <h2>Verder praten over wat dit voor jouw organisatie betekent?</h2>
+      <h2>Verder praten of interesse in een traject?</h2>
       {% set cta = post.cta or site.ctaDefault %}
       <p>{{ site.ctaDefault.intro }}</p>
       <a href="{{ cta.url }}" target="_blank" rel="noopener">
