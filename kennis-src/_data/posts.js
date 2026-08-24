@@ -32,8 +32,9 @@ module.exports = async () => {
   });
   posts.forEach((p) => { p.weergaven = 0; });
   await haalWeergaven(posts);
-  // Volgorde: uitgelicht eerst, dan meest bekeken, dan nieuwste
+  // Volgorde: uitgelicht eerst, dan meest bekeken, dan langste leestijd, dan nieuwste
   posts.sort((a, b) =>
-    (b.uitgelicht - a.uitgelicht) || (b.weergaven - a.weergaven) || (b.date - a.date));
+    (b.uitgelicht - a.uitgelicht) || (b.weergaven - a.weergaven) ||
+    (b.readingTime - a.readingTime) || (b.date - a.date));
   return posts;
 };
