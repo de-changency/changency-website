@@ -1,4 +1,7 @@
 module.exports = {
+  // GoatCounter-code voor cookieloze statistieken (bijv. 'saar-insights');
+  // null = geen statistieken en sorteren op datum
+  goatcounter: null,
   key: 'changency',
   name: 'De Changency',
   domain: 'https://www.de-changency.nl',
