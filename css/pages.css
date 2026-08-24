@@ -2044,3 +2044,8 @@ main > section:last-of-type#contact-grid .contact-booking {
     background-color: var(--color-accent);
     color: var(--color-dark);
 }
+
+[data-label="lerende-organisatie"] .kennis-tag {
+    background-color: #E7D8E0;
+    color: var(--color-dark);
+}
