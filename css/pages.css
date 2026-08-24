@@ -2049,3 +2049,24 @@ main > section:last-of-type#contact-grid .contact-booking {
     background-color: #E7D8E0;
     color: var(--color-dark);
 }
+
+/* ---- Toon alle artikelen ---- */
+.kennis-verborgen {
+    display: none;
+}
+
+.kennis-toon-alles-wrap {
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+.kennis-toon-alles {
+    color: var(--color-primary);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    transition: color var(--transition-fast);
+}
+
+.kennis-toon-alles:hover {
+    color: var(--color-primary-light);
+}

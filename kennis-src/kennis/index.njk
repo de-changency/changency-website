@@ -76,7 +76,7 @@ permalink: /kennis/index.html
       <div class="kennis-grid">
         {% for post in posts %}
         {% if not loop.first %}
-        <a href="{{ post.url }}" class="kennis-card" data-label="{{ post.labelSlug }}">
+        <a href="{{ post.url }}" class="kennis-card{% if loop.index0 > 8 %} kennis-verborgen{% endif %}" data-label="{{ post.labelSlug }}">
           {% if post.image %}
           <div class="kennis-cover">
             <img src="/kennis/{{ post.image }}" alt="">
@@ -95,6 +95,12 @@ permalink: /kennis/index.html
       </div>
       {% endif %}
 
+      {% if posts.length > 9 %}
+      <div class="kennis-toon-alles-wrap">
+        <button type="button" class="kennis-toon-alles">Toon alle artikelen →</button>
+      </div>
+      {% endif %}
+
       {% else %}
       <p>Er staan nog geen artikelen online. Kom binnenkort terug!</p>
       {% endif %}
@@ -110,8 +116,15 @@ permalink: /kennis/index.html
     </section>
 
     <script>
+    var toonAlles = document.querySelector('.kennis-toon-alles');
+    function toonAlleKaarten() {
+        document.querySelectorAll('.kennis-verborgen').forEach(function (el) { el.classList.remove('kennis-verborgen'); });
+        if (toonAlles && toonAlles.parentElement) toonAlles.parentElement.style.display = 'none';
+    }
+    if (toonAlles) toonAlles.addEventListener('click', toonAlleKaarten);
     document.querySelectorAll('.kennis-filter button').forEach(function (btn) {
         btn.addEventListener('click', function () {
+            toonAlleKaarten();
             document.querySelectorAll('.kennis-filter button').forEach(function (b) { b.classList.remove('actief'); });
             btn.classList.add('actief');
             var f = btn.getAttribute('data-filter');
