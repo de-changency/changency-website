@@ -76,7 +76,7 @@ permalink: /kennis/index.html
       <div class="kennis-grid">
         {% for post in posts %}
         {% if not loop.first %}
-        <a href="{{ post.url }}" class="kennis-card{% if loop.index0 > 8 %} kennis-verborgen{% endif %}" data-label="{{ post.labelSlug }}">
+        <a href="{{ post.url }}" class="kennis-card{% if loop.index0 > 9 %} kennis-verborgen{% endif %}" data-label="{{ post.labelSlug }}">
           {% if post.image %}
           <div class="kennis-cover">
             <img src="/kennis/{{ post.image }}" alt="">
@@ -95,7 +95,7 @@ permalink: /kennis/index.html
       </div>
       {% endif %}
 
-      {% if posts.length > 9 %}
+      {% if posts.length > 10 %}
       <div class="kennis-toon-alles-wrap">
         <button type="button" class="kennis-toon-alles">Toon alle artikelen →</button>
       </div>
