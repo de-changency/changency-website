@@ -55,10 +55,10 @@ eleventyExcludeFromCollections: true
 {% block content %}
 
     <!-- ARTIKEL -->
-    <section class="legal-page kennis-article">
+    <section class="legal-page kennis-article" data-label="{{ post.labelSlug }}">
       <div class="legal-document">
         <a href="/kennis/" class="kennis-backlink">← Alle artikelen</a>
-        <p class="label">{{ post.label or "Kennis" }}</p>
+        <p class="label kennis-tag">{{ post.label or "Kennis" }}</p>
         <h1>{{ post.title }}</h1>
         <p class="kennis-article-meta">{{ post.readingTime }} min leestijd · door Ilse Polak</p>
         {% if post.image %}

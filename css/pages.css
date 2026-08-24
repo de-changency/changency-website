@@ -1989,3 +1989,44 @@ main > section:last-of-type#contact-grid .contact-booking {
     font-size: var(--fs-xs);
     line-height: 1.5;
 }
+
+/* ---- Labelkleuren (pill-stijl van de site, per thema een tint) ---- */
+.kennis-tag {
+    margin-bottom: var(--space-sm);
+}
+
+[data-label="it-adoptie"] .kennis-tag {
+    background-color: var(--color-accent-light);
+    color: var(--color-primary);
+}
+
+[data-label="lerende-organisatie"] .kennis-tag {
+    background-color: var(--color-bg-alt);
+    color: var(--color-dark);
+}
+
+[data-label="e-learning"] .kennis-tag {
+    background-color: var(--color-saar-pink-soft);
+    color: var(--color-primary);
+}
+
+/* ---- Featured met zacht verloop ---- */
+.kennis-featured {
+    background: linear-gradient(160deg, var(--color-white) 55%, #F7EFF2 100%);
+}
+
+/* ---- Lees meer in merkkleur (zelfde patroon als .cards article > a) ---- */
+.kennis-lees {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+    transition: color var(--transition-fast);
+}
+
+.kennis-card .kennis-lees {
+    margin-top: var(--space-sm);
+}
+
+.kennis-card:hover .kennis-lees,
+.kennis-featured:hover .kennis-lees {
+    color: var(--color-primary-light);
+}

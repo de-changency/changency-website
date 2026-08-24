@@ -60,7 +60,7 @@ permalink: /kennis/index.html
       {% set featured = posts[0] %}
       <a href="{{ featured.url }}" class="kennis-featured{% if featured.image %} has-cover{% endif %}" data-label="{{ featured.labelSlug }}">
         <div class="kennis-featured-text">
-          <p class="kennis-tag">{{ featured.label or "Uitgelicht" }}</p>
+          <p class="label kennis-tag">{{ featured.label or "Uitgelicht" }}</p>
           <h2>{{ featured.title }}{% if featured.isDraft %} (concept){% endif %}</h2>
           <p>{{ featured.description }}</p>
           <span class="kennis-meta">{{ featured.readingTime }} min leestijd</span>
@@ -84,10 +84,11 @@ permalink: /kennis/index.html
           </div>
           {% endif %}
           <div class="kennis-card-body">
-            <p class="kennis-tag">{{ post.label or "Kennis" }}</p>
+            <p class="label kennis-tag">{{ post.label or "Kennis" }}</p>
             <h3>{{ post.title }}{% if post.isDraft %} (concept){% endif %}</h3>
             <p>{{ post.description }}</p>
             <span class="kennis-meta">{{ post.readingTime }} min leestijd</span>
+            <span class="kennis-lees">Lees meer →</span>
           </div>
         </a>
         {% endif %}
