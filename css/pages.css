@@ -2034,3 +2034,13 @@ main > section:last-of-type#contact-grid .contact-booking {
 .kennis-tag {
     align-self: flex-start;
 }
+
+/* ---- Pills: volledig rond en duidelijke tinten ---- */
+.kennis-tag {
+    border-radius: 999px;
+}
+
+[data-label="lerende-organisatie"] .kennis-tag {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
