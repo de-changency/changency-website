@@ -1907,14 +1907,19 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 /* ---- Labelfilter ---- */
+.kennis-filter-wrap {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
 .kennis-filter {
     display: inline-flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 4px;
-    background: var(--color-bg-alt);
+    background: var(--color-border);
     border-radius: 999px;
     padding: 4px;
-    margin-bottom: var(--space-xl);
 }
 
 .kennis-filter button {

@@ -46,11 +46,13 @@ permalink: /kennis/index.html
       {% endfor %}
 
       {% if posts.length > 1 and labelList.length %}
-      <div class="kennis-filter" role="group" aria-label="Filter artikelen op label">
-        <button type="button" class="actief" data-filter="alle">Alle artikelen</button>
-        {% for l in labelList %}
-        <button type="button" data-filter="{{ l.slug }}">{{ l.name }}</button>
-        {% endfor %}
+      <div class="kennis-filter-wrap">
+        <div class="kennis-filter" role="group" aria-label="Filter artikelen op label">
+          <button type="button" class="actief" data-filter="alle">Alle artikelen</button>
+          {% for l in labelList %}
+          <button type="button" data-filter="{{ l.slug }}">{{ l.name }}</button>
+          {% endfor %}
+        </div>
       </div>
       {% endif %}
 
