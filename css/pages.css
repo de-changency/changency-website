@@ -1989,3 +1989,50 @@ main > section:last-of-type#contact-grid .contact-booking {
     font-size: var(--fs-xs);
     line-height: 1.5;
 }
+
+/* ---- Kaartaccenten per label ---- */
+.kennis-card,
+.kennis-featured {
+    border-top: 3px solid var(--color-accent-light);
+}
+
+.kennis-card[data-label="digitale-vaardigheden"],
+.kennis-featured[data-label="digitale-vaardigheden"] { border-top-color: var(--color-primary); }
+.kennis-card[data-label="it-adoptie"],
+.kennis-featured[data-label="it-adoptie"] { border-top-color: var(--color-dark); }
+.kennis-card[data-label="lerende-organisatie"],
+.kennis-featured[data-label="lerende-organisatie"] { border-top-color: var(--color-accent); }
+.kennis-card[data-label="e-learning"],
+.kennis-featured[data-label="e-learning"] { border-top-color: var(--color-saar-pink); }
+
+.kennis-card[data-label="it-adoptie"] .kennis-tag,
+.kennis-featured[data-label="it-adoptie"] .kennis-tag { color: var(--color-dark); }
+.kennis-card[data-label="lerende-organisatie"] .kennis-tag,
+.kennis-featured[data-label="lerende-organisatie"] .kennis-tag { color: var(--color-primary-light); }
+.kennis-card[data-label="e-learning"] .kennis-tag,
+.kennis-featured[data-label="e-learning"] .kennis-tag { color: var(--color-saar-pink-dark); }
+
+/* ---- Featured licht onderscheiden ---- */
+.kennis-featured {
+    background: linear-gradient(160deg, var(--color-white) 55%, #F7EFF2 100%);
+}
+
+/* ---- Micro-interactie bij hover ---- */
+.kennis-card h3,
+.kennis-featured h2 {
+    transition: color var(--transition-fast);
+}
+
+.kennis-card:hover h3,
+.kennis-featured:hover h2 {
+    color: var(--color-primary);
+}
+
+.kennis-lees {
+    transition: color var(--transition-fast);
+}
+
+.kennis-card:hover > a,
+.kennis-featured:hover .kennis-lees {
+    color: var(--color-primary-light);
+}
