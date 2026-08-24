@@ -129,7 +129,7 @@ permalink: /kennis/index.html
             btn.classList.add('actief');
             var f = btn.getAttribute('data-filter');
             document.querySelectorAll('[data-label]').forEach(function (el) {
-                el.style.display = (f === 'alle' || el.getAttribute('data-label') === f) ? '' : 'none';
+                el.classList.toggle('kennis-weggefilterd', !(f === 'alle' || el.getAttribute('data-label') === f));
             });
         });
     });

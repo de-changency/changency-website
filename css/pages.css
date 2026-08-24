@@ -2050,8 +2050,9 @@ main > section:last-of-type#contact-grid .contact-booking {
     color: var(--color-dark);
 }
 
-/* ---- Toon alle artikelen ---- */
-.kennis-verborgen {
+/* ---- Toon alle artikelen + labelfilter ---- */
+.kennis-verborgen,
+.kennis-weggefilterd {
     display: none;
 }
 
