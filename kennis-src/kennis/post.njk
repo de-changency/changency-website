@@ -68,6 +68,17 @@ eleventyExcludeFromCollections: true
         {% endif %}
         {{ post.html | safe }}
 
+        {% if post.bronnen.length %}
+        <div class="kennis-bronnen">
+          <h3>Bronnen</h3>
+          <ul>
+            {% for bron in post.bronnen %}
+            <li>{{ bron }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
         <div class="kennis-reageer">
           <h3>Delen of doorpraten?</h3>
           <p>Stuur dit artikel door naar een collega of praat verder op <a href="https://www.linkedin.com/in/ilse-polak/" target="_blank" rel="noopener">LinkedIn</a>.</p>
