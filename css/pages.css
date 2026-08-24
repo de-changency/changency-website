@@ -1946,29 +1946,29 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 /* ---- Bronnen ---- */
-.kennis-bronnen {
+.kennis-article .kennis-bronnen {
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
 }
 
-.kennis-bronnen h3 {
+.kennis-article .kennis-bronnen h3 {
     font-size: var(--fs-sm);
     color: var(--color-text);
-    margin: 0 0 var(--space-xs);
+    margin: 0 0 var(--space-sm);
 }
 
-.kennis-bronnen ul {
+.kennis-article .kennis-bronnen ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.kennis-bronnen li {
+.kennis-article .kennis-bronnen li {
     color: var(--color-text-light);
     font-size: var(--fs-xs);
     line-height: 1.6;
-    margin-bottom: 6px;
-    padding-left: 1.1rem;
-    text-indent: -1.1rem;
+    margin: 0 0 6px;
+    padding: 0;
+    text-indent: 0;
 }
