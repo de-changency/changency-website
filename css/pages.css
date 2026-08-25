@@ -2072,27 +2072,33 @@ main > section:last-of-type#contact-grid .contact-booking {
     color: var(--color-primary-light);
 }
 
-/* ---- Logobalk: corporaties waar we mee werken (homepage) ---- */
-#logo-bar {
-  padding-top: 0;
-  padding-bottom: var(--space-2xl);
-  text-align: center;
+/* ---- Logobalk: corporaties die met de Changency werken (homepage) ---- */
+/* De logobalk is als extra sectie tussengevoegd; de nth-child-afwisseling van
+   base.css verschuift daardoor. Hieronder de oorspronkelijke afwisseling expliciet hersteld. */
+#logo-bar,
+#trajecten,
+#saar-insights {
+  background-color: transparent;
 }
 
-#logo-bar p {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-light);
-  opacity: 0.75;
-  margin-bottom: 1.75rem;
+#herkenning,
+#methode,
+#testimonials {
+  background-color: var(--color-bg-alt);
+}
+
+#logo-bar {
+  padding-top: 0;
+  padding-bottom: var(--space-3xl);
+  text-align: center;
 }
 
 #logo-bar div {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.75rem 4rem;
+  gap: 1.75rem 2.5rem;
   max-width: var(--container-max);
   margin: 0 auto;
 }
@@ -2119,6 +2125,7 @@ main > section:last-of-type#contact-grid .contact-booking {
 
 @media (max-width: 640px) {
   #logo-bar div {
+    justify-content: center;
     gap: 1.25rem 2.25rem;
   }
 
