@@ -142,5 +142,28 @@ eleventyExcludeFromCollections: true
         });
     });
     </script>
+{% if site.goatcounter %}
+    <script>
+    // Deelknop-events naar GoatCounter (cookieloos): telt kliks per kanaal per artikel
+    document.querySelectorAll('.kennis-share-icons a').forEach(function (knop) {
+        var kanaal = {
+            'Deel op LinkedIn': 'linkedin',
+            'Deel via WhatsApp': 'whatsapp',
+            'Mail naar een collega': 'mail',
+            'Kopieer link': 'kopieer'
+        }[knop.getAttribute('title')] || 'overig';
+        knop.addEventListener('click', function () {
+            if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({
+                    path: 'deel-' + kanaal + window.location.pathname,
+                    title: 'Deelknop: ' + kanaal,
+                    event: true
+                });
+            }
+        });
+    });
+    </script>
+{% endif %}
+
 
 {% endblock %}
