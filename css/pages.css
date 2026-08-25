@@ -2071,3 +2071,62 @@ main > section:last-of-type#contact-grid .contact-booking {
 .kennis-toon-alles:hover {
     color: var(--color-primary-light);
 }
+
+/* ---- Logobalk: corporaties waar we mee werken (homepage) ---- */
+#logo-bar {
+  padding-top: 0;
+  padding-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+#logo-bar p {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-light);
+  opacity: 0.75;
+  margin-bottom: 1.75rem;
+}
+
+#logo-bar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.75rem 4rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+#logo-bar img {
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.45;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+#logo-bar img:hover {
+  filter: grayscale(0);
+  opacity: 0.9;
+}
+
+#logo-bar img.logo-wide {
+  height: 26px;
+}
+
+#logo-bar img.logo-square {
+  height: 44px;
+}
+
+@media (max-width: 640px) {
+  #logo-bar div {
+    gap: 1.25rem 2.25rem;
+  }
+
+  #logo-bar img.logo-wide {
+    height: 20px;
+  }
+
+  #logo-bar img.logo-square {
+    height: 34px;
+  }
+}
