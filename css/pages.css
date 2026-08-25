@@ -2137,3 +2137,9 @@ main > section:last-of-type#contact-grid .contact-booking {
     height: 34px;
   }
 }
+
+/* ---- Kennislinks op dienstpagina's ---- */
+.kennislink {
+    font-size: var(--fs-sm);
+    color: var(--color-text-light);
+}
