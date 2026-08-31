@@ -25,6 +25,7 @@ eleventyExcludeFromCollections: true
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="De Changency">
   <meta property="article:published_time" content="{{ post.dateISO }}">
+  <meta property="article:modified_time" content="{{ post.modifiedISO }}">
   <link rel="canonical" href="{{ post.canonicalUrl }}">
   <link rel="alternate" type="application/atom+xml" title="Kennis | De Changency" href="/kennis/feed.xml">
   <script type="application/ld+json">
@@ -34,6 +35,7 @@ eleventyExcludeFromCollections: true
     "headline": {{ post.title | dump | safe }},
     "description": {{ post.description | dump | safe }},
     "datePublished": "{{ post.dateISO }}",
+    "dateModified": "{{ post.modifiedISO }}",
     "inLanguage": "nl",
     {% if post.label %}"articleSection": {{ post.label | dump | safe }},{% endif %}
     {% if post.imageUrl %}"image": "{{ post.imageUrl }}",{% endif %}
@@ -63,7 +65,7 @@ eleventyExcludeFromCollections: true
         <p class="kennis-article-meta">{{ post.readingTime }} min leestijd · door Ilse Polak</p>
         {% if post.image %}
         <div class="kennis-cover kennis-article-banner">
-          <img src="/kennis/{{ post.image }}" alt="">
+          <img src="/kennis/{{ post.image }}" alt="{{ post.imageAlt or post.title }}">
         </div>
         {% endif %}
         {{ post.html | safe }}

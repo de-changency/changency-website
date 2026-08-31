@@ -28,7 +28,7 @@ eleventyExcludeFromCollections: true
 {%- for post in primaryPosts %}
   <url>
     <loc>{{ post.absoluteUrl }}</loc>
-    <lastmod>{{ post.dateISO }}</lastmod>
+    <lastmod>{{ post.modifiedISO }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

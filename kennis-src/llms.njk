@@ -1,0 +1,24 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# De Changency
+
+> De Changency helpt woningcorporaties bij IT-adoptie en het versterken van digitale vaardigheden: meten waar medewerkers staan, gericht ontwikkelen en hermeten wat het oplevert. Opgericht en gerund door Ilse Polak, met een achtergrond in IT-consultancy en verandermanagement.
+
+De Changency werkt datagedreven: een digitale vaardigheidsscan of adoptiemeting vormt het startpunt, daarna volgen gerichte interventies en een hermeting die laat zien wat het heeft opgeleverd. Zustersite [SAAR Insights](https://www.saar-insights.nl) is het bijbehorende platform voor assessments, e-learning en kennismanagement.
+
+## Belangrijkste pagina's
+
+- [Home](https://www.de-changency.nl/): wat De Changency doet voor woningcorporaties
+- [Diensten](https://www.de-changency.nl/diensten/): overzicht van de dienstverlening
+- [IT-adoptie](https://www.de-changency.nl/diensten/adoptie/): zorgen dat nieuwe software en systemen echt worden gebruikt, van ERP tot Microsoft 365 en AI-tools
+- [Digitaal vaardigheidstraject](https://www.de-changency.nl/diensten/digitale-vaardigheden/): digitale vaardigheden meten, ontwikkelen en hermeten
+- [Over Ilse Polak](https://www.de-changency.nl/over/): achtergrond en werkwijze van de oprichter
+- [Recensies](https://www.de-changency.nl/recensies/): ervaringen van opdrachtgevers
+- [Contact](https://www.de-changency.nl/contact/): contactgegevens en kennismaking plannen
+
+## Kennisartikelen
+{% for post in posts %}
+- [{{ post.title }}]({{ post.absoluteUrl }}): {{ post.description }}
+{%- endfor %}
