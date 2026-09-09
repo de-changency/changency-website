@@ -398,6 +398,14 @@ document.addEventListener('DOMContentLoaded', () => {
   var TIDIO_PUBLIC_KEY = 'rs2s3v9fushyvleekxnvuwiygn9hqvb1';
   var TIDIO_KLEUR = '#8B3A62'; /* huisstijl: --color-primary */
   if (!TIDIO_PUBLIC_KEY) return;
+  /* Eigen bezoek uitsluiten: eenmalig ?chat=uit achter de URL zetten
+     (weer aanzetten met ?chat=aan). Geldt per browser/apparaat. */
+  try {
+    var chatParam = new URLSearchParams(location.search).get('chat');
+    if (chatParam === 'uit') localStorage.setItem('tidioUit', '1');
+    if (chatParam === 'aan') localStorage.removeItem('tidioUit');
+    if (localStorage.getItem('tidioUit') === '1') return;
+  } catch (e) {}
   document.addEventListener('tidioChat-ready', function () {
     if (window.tidioChatApi) window.tidioChatApi.setColorPalette(TIDIO_KLEUR);
   });
