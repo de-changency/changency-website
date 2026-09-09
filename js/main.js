@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Zolang de key leeg is, doet dit blok niets.
 // ============================================
 (function () {
-  var TIDIO_PUBLIC_KEY = '';
+  var TIDIO_PUBLIC_KEY = 'rs2s3v9fushyvleekxnvuwiygn9hqvb1';
   if (!TIDIO_PUBLIC_KEY) return;
   var script = document.createElement('script');
   script.src = 'https://code.tidio.co/' + TIDIO_PUBLIC_KEY + '.js';
