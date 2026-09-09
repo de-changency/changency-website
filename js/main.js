@@ -396,7 +396,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 (function () {
   var TIDIO_PUBLIC_KEY = 'rs2s3v9fushyvleekxnvuwiygn9hqvb1';
+  var TIDIO_KLEUR = '#8B3A62'; /* huisstijl: --color-primary */
   if (!TIDIO_PUBLIC_KEY) return;
+  document.addEventListener('tidioChat-ready', function () {
+    if (window.tidioChatApi) window.tidioChatApi.setColorPalette(TIDIO_KLEUR);
+  });
   var script = document.createElement('script');
   script.src = 'https://code.tidio.co/' + TIDIO_PUBLIC_KEY + '.js';
   script.async = true;
