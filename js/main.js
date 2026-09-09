@@ -386,3 +386,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+// ============================================
+// TIDIO CHATWIDGET
+// Gedeelde live chat met saar-insights.nl (zelfde key = één inbox).
+// Key invullen na aanmaken Tidio-account (Settings > Live Chat > Installation)
+// en daarna jsVersion bumpen in kennis-src/_data/site.js + ?v= in de HTML-pagina's.
+// Zolang de key leeg is, doet dit blok niets.
+// ============================================
+(function () {
+  var TIDIO_PUBLIC_KEY = '';
+  if (!TIDIO_PUBLIC_KEY) return;
+  var script = document.createElement('script');
+  script.src = 'https://code.tidio.co/' + TIDIO_PUBLIC_KEY + '.js';
+  script.async = true;
+  document.body.appendChild(script);
+})();
