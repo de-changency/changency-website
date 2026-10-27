@@ -8,8 +8,8 @@
   --color-primary:        #8B3A62;
   --color-primary-light:  #A85080;
   --color-avatar-ring:    color-mix(in srgb, var(--color-primary) 38%, transparent);
-  --color-saar-pink:      #EC4899;
-  --color-saar-pink-dark: #BE185D;
+  --color-saar-pink:      #d5469f;
+  --color-saar-pink-dark: #a8367d;
   --color-saar-pink-soft: #FBCFE8;
   --color-accent:         #D4A0B0;
   --color-accent-light:   #E8C8D2;

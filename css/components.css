@@ -408,14 +408,11 @@ footer {
 .label,
 .badge {
     display: inline-block;
-    background-color: var(--color-saar-pink-soft);
-    color: var(--color-saar-pink-dark);
-    padding: 4px 12px;
-    border-radius: var(--border-radius);
+    color: var(--color-primary);
     font-size: var(--fs-xs);
     font-weight: var(--fw-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.08em;
     margin-bottom: var(--space-md);
 }
 
