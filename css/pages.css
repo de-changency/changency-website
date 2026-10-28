@@ -87,20 +87,20 @@ main {
     text-align: center;
 }
 
-#herkenning .uitspraak h2 {
-    color: var(--on-diep-kop);
+#herkenning h2 {
+    color: var(--color-primary);
     margin-bottom: var(--space-title-to-lead);
 }
 
-#herkenning .uitspraak p {
+#herkenning p {
     font-size: var(--fs-md);
     line-height: 1.7;
-    color: var(--on-diep-body);
+    color: var(--color-text-light);
 }
 
-/* De slotzin is de kern; op het paneel krijgt die wit in plaats van donker. */
-#herkenning .uitspraak p:last-child {
-    color: var(--on-diep-kop);
+/* De slotzin is de kern en krijgt daarom de donkere tekstkleur. */
+#herkenning p:last-child {
+    color: var(--color-dark);
     font-weight: var(--fw-medium);
 }
 
@@ -2131,25 +2131,16 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 
-/* ---- Kader: doorverwijzing naar een andere pagina ----
-   Een verwijzing van een paar regels hoort niet dezelfde ruimte te krijgen als
-   een volledige sectie. Een pruimen kantlijn is genoeg om het als zijpad te
-   markeren; een vlak eronder zou botsen met het steunvlak dat er vaak op volgt. */
-.kader {
-    border-left: 3px solid var(--color-primary);
-    padding-left: var(--space-lg);
-    max-width: var(--container-max);
-    margin-left: auto;
-    margin-right: auto;
+/* ---- Doorverwijzing naar een andere pagina ----
+   Een verwijzing van een paar regels hoort niet dezelfde ruimte en niet
+   dezelfde kopmaat te krijgen als een volledige sectie. De kleinere kop en de
+   compacte sectie doen dat werk; een kantlijn of een vlak is niet nodig. */
+#adoptie-toepassing > h2 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-md);
 }
 
-.kader h2,
-.kader h3 {
-    font-size: var(--fs-lg);
-    margin-bottom: var(--space-sm);
-}
-
-.kader p {
+#adoptie-toepassing > p {
     color: var(--color-text-light);
     margin-bottom: 0;
 }
