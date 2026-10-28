@@ -193,33 +193,43 @@ main {
 
 /* ---- SAAR Insights ----
    Dit blok hoort bij het andere merk en houdt daarom zijn eigen roze vlak met
-   roze rand. De klasse surface-saar in de HTML markeert het als eigen
-   oppervlak, zodat de haarlijn uit base.css er niet overheen komt. */
+   roze rand. Het vlak zit op .saar-paneel en niet op de sectie: op de sectie
+   besloeg het de volle schermbreedte, waardoor de rand en de ronde hoeken aan
+   de schermranden zaten en nooit te zien waren. */
 #saar-insights,
 section#saar {
     text-align: center;
-    position: relative;
-    border: 1px solid var(--color-saar-pink-soft);
-    border-radius: var(--border-radius-lg);
-    background: #F9EFF4;
+    /* De rand van het paneel is al de scheiding, dus hier geen haarlijn. */
+    border-top: 0;
 }
 
-#saar-insights h3,
-section#saar h3 {
+.saar-paneel {
+    background: var(--surface-saar);
+    border: 1px solid var(--color-saar-pink-soft);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .saar-paneel {
+        padding: var(--space-2xl);
+    }
+}
+
+.saar-paneel h3 {
     color: var(--color-saar-pink-dark);
     margin-bottom: var(--space-xl);
 }
 
-#saar-insights p,
-section#saar p {
+.saar-paneel p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
 
-#saar-insights > a,
-section#saar > a,
-#saar-insights > div > a,
-section#saar > div > a {
+.saar-paneel > a {
     display: inline-block;
     color: var(--color-saar-pink-dark);
     font-weight: var(--fw-semibold);
@@ -228,10 +238,7 @@ section#saar > div > a {
     transition: color var(--transition-fast);
 }
 
-#saar-insights > a:hover,
-section#saar > a:hover,
-#saar-insights > div > a:hover,
-section#saar > div > a:hover {
+.saar-paneel > a:hover {
     color: var(--color-saar-pink);
 }
 

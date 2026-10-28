@@ -181,8 +181,9 @@ main > section.surface-steun .quotes blockquote {
 /* Haarlijn tussen twee witte secties. Volgt een sectie op een gekleurd vlak,
    dan is de rand van dat vlak al de scheiding en hoeft er geen lijn bij.
    Elke sectie met een eigen vlak heet daarom surface-iets; die naamgeving is
-   waar deze regel op selecteert. Een sectie die zijn eigen achtergrond in de
-   CSS meebrengt (zoals het SAAR-blok) krijgt die klasse dus ook. */
+   waar deze regel op selecteert. Een paneel binnen een witte sectie, zoals
+   .uitspraak of .saar-paneel, telt niet mee: die sectie is zelf wit en krijgt
+   dus gewoon een haarlijn. */
 main > section:not([class*="surface-"]) + section:not([class*="surface-"]) {
   border-top: 1px solid var(--color-border);
 }

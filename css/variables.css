@@ -33,6 +33,9 @@
   --surface-steun-line:   #E8D8E0;
   --color-border:         #ECDFE6;
 
+  /* Het SAAR-paneel hoort bij het andere merk en staat los van de pruimladder. */
+  --surface-saar:         #F9EFF4;
+
   /* Tekst op het donkere uitspraakpaneel (--color-dark, #3D1F2E) */
   --on-diep-kop:          #FFFFFF;   /* 14,7 : 1 */
   --on-diep-body:         #E3D2DA;   /* 10,1 : 1 */
