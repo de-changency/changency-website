@@ -2157,12 +2157,10 @@ main > section:last-of-type#contact-grid .contact-booking {
 
 
 /* ---- Kader: doorverwijzing naar een andere pagina ----
-   Een verwijzing van een paar regels hoort niet dezelfde ruimte te krijgen als
-   een volledige sectie. Een pruimen kantlijn is genoeg om het als zijpad te
-   markeren; een vlak eronder zou botsen met het steunvlak dat er vaak op volgt. */
+   Een verwijzing van een paar regels hoort niet dezelfde ruimte en kopmaat te
+   krijgen als een volledige sectie. De kleinere kop en de compacte sectie doen
+   dat werk; een kantlijn of vlak is bewust weggelaten (schrapronde 27 okt). */
 .kader {
-    border-left: 3px solid var(--color-primary);
-    padding-left: var(--space-lg);
     max-width: var(--container-max);
     margin-left: auto;
     margin-right: auto;
