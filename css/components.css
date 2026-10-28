@@ -468,3 +468,19 @@ footer {
         text-align: left;
     }
 }
+
+/* ---- Kaarticonen: Phosphor Duotone, tweede laag in de huisstijlkleur (28 okt 2026) ---- */
+.kaart-icoon {
+  display: flex;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+.kaart-icoon svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.kaart-icoon .duo {
+  fill: var(--color-primary);
+  opacity: 0.26;
+}
