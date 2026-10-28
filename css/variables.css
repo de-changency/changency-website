@@ -16,10 +16,28 @@
   --color-dark:           #3D1F2E;
   --color-text:           #2D2D2D;
   --color-text-light:     #6B6B6B;
-  --color-bg:             #FAFAF8;
-  --color-bg-alt:         #F3F0EE;
-  --color-border:         #E5E0DC;
   --color-white:          #FFFFFF;
+
+  /* ---- Oppervlakken ----
+     Alle vlakken komen uit dezelfde pruim (--color-primary, #8B3A62),
+     telkens een ander percentage over wit. Daardoor kan er niets vloeken
+     en leest geen enkel vlak als grijsbeige.
+       wit                basis, verreweg de meeste secties
+       steun     10%      grond onder kaarten en rasters
+       steun-line 20%     kaartrand op het steunvlak
+       border    16%      haarlijn tussen witte secties, kaartrand op wit
+       diep      donker   uitspraakpaneel, binnen de tekstkolom
+       primary   100%     knoppen, links, labels en de CTA onderaan        */
+  --color-bg:             #FFFFFF;
+  --surface-steun:        #F3EBEF;
+  --surface-steun-line:   #E8D8E0;
+  --color-border:         #ECDFE6;
+
+  /* Tekst op het donkere uitspraakpaneel (--color-dark, #3D1F2E) */
+  --on-diep-kop:          #FFFFFF;   /* 14,7 : 1 */
+  --on-diep-body:         #E3D2DA;   /* 10,1 : 1 */
+  --on-diep-link:         #E9BECB;   /*  8,9 : 1 */
+  --on-diep-line:         rgba(255, 255, 255, 0.14);
 
   /* ---- Fonts ---- */
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -64,6 +82,7 @@
 
   /* ---- Shadows ---- */
   --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1px 2px rgba(61, 31, 46, 0.04), 0 10px 22px -13px rgba(61, 31, 46, 0.22);
   --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.10);
   --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.06);

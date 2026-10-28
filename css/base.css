@@ -159,9 +159,53 @@ main section > div {
   }
 }
 
-/* ---- Afwisselende achtergronden ---- */
-main section:nth-child(even) {
-  background-color: var(--color-bg-alt);
+/* ---- Oppervlakken per sectie ----
+   Een sectie krijgt alleen een vlak als daar een reden voor is: er staan
+   kaarten op die grond nodig hebben, of het blok geeft even rust. Welk vlak
+   een sectie krijgt staat dus bij de inhoud in de HTML, niet bij de positie
+   in de rij. Een sectie verplaatsen verandert daardoor niets aan de rest. */
+main > section.surface-steun {
+  background-color: var(--surface-steun);
+}
+
+/* Kaarten op het steunvlak krijgen een iets sterkere rand, anders valt de
+   rand weg tegen de achtergrond. */
+main > section.surface-steun .resultaten-grid > div,
+main > section.surface-steun .toepassing-grid > div,
+main > section.surface-steun .contact-item,
+main > section.surface-steun .recensie-full,
+main > section.surface-steun .quotes blockquote {
+  border-color: var(--surface-steun-line);
+}
+
+/* Haarlijn tussen twee witte secties. Volgt een sectie op een gekleurd vlak,
+   dan is de rand van dat vlak al de scheiding en hoeft er geen lijn bij.
+   Elke sectie met een eigen vlak heet daarom surface-iets; die naamgeving is
+   waar deze regel op selecteert. Een sectie die zijn eigen achtergrond in de
+   CSS meebrengt (zoals het SAAR-blok) krijgt die klasse dus ook. */
+main > section:not([class*="surface-"]) + section:not([class*="surface-"]) {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- Ritme ----
+   Niet elke sectie weegt even zwaar. Een doorverwijzing van drie regels hoort
+   minder lucht te krijgen dan een sectie met drie volledige fases. */
+main > section.compact {
+  padding-block: var(--space-2xl);
+}
+
+main > section.ruim {
+  padding-block: var(--space-4xl);
+}
+
+@media (min-width: 768px) {
+  main > section.compact {
+    padding-block: var(--space-3xl);
+  }
+
+  main > section.ruim {
+    padding-block: var(--space-5xl);
+  }
 }
 
 /* ---- Fade-in animatie (sectie-level via JS + html.js-scroll-animations) ---- */
