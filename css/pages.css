@@ -189,7 +189,7 @@ main {
    de schermranden zaten en nooit te zien waren. */
 #saar-insights,
 section#saar {
-    text-align: center;
+    text-align: left;
     /* De rand van het paneel is al de scheiding, dus hier geen haarlijn. */
     border-top: 0;
 }
@@ -210,31 +210,86 @@ section#saar {
     }
 }
 
+/* De kop in de gewone kopkleur: het paneel hoort bij de pagina, het roze vlak
+   en de link maken al duidelijk dat het over SAAR gaat. Tekst links uitgelijnd
+   op een leesbare kolombreedte. */
 .saar-paneel h3 {
-    color: var(--color-saar-pink-dark);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    max-width: 40rem;
 }
 
 .saar-paneel p {
     color: var(--color-text-light);
     line-height: 1.7;
+    max-width: 40rem;
 }
 
 .saar-paneel p + p {
     margin-top: var(--space-sm);
 }
 
-.saar-paneel > a {
+.saar-paneel a.saar-link,
+.saar-paneel > a,
+.saar-paneel-tekst > a {
     display: inline-block;
     color: var(--color-saar-pink-dark);
     font-weight: var(--fw-semibold);
     text-decoration: none;
-    margin-top: var(--space-sm);
+    margin-top: var(--space-md);
     transition: color var(--transition-fast);
 }
 
-.saar-paneel > a:hover {
+.saar-paneel > a:hover,
+.saar-paneel-tekst > a:hover {
     color: var(--color-saar-pink);
+}
+
+/* Variant met een echt schermbeeld van het platform naast de tekst (homepage).
+   Het beeld is een render van het functiegroeprapport, in een dunne rand met
+   zachte schaduw, en loopt onderin uit in de paneelkleur. */
+.saar-paneel-beeld {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .saar-paneel-beeld {
+        grid-template-columns: minmax(0, 11fr) minmax(0, 10fr);
+        gap: var(--space-2xl);
+    }
+}
+
+.saar-paneel-tekst {
+    max-width: 32rem;
+}
+
+.saar-paneel-kader {
+    position: relative;
+    background: var(--color-white);
+    border: 1px solid var(--color-saar-pink-soft);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    max-height: 420px;
+}
+
+.saar-paneel-kader img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.saar-paneel-kader::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--surface-saar));
+    pointer-events: none;
 }
 
 /* ---- Testimonials (carrousel) ---- */
@@ -463,7 +518,6 @@ section#saar {
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--color-avatar-ring);
     flex-shrink: 0;
 }
 
@@ -576,7 +630,6 @@ section#saar {
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--color-avatar-ring);
     flex-shrink: 0;
 }
 
