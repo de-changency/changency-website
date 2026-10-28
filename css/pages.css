@@ -1375,7 +1375,10 @@ main > section:last-of-type#contact-grid .contact-booking {
     margin-right: auto;
 }
 
-.legal-page .legal-document > p,
+/* De labelpill op een artikelpagina is ook een p binnen .legal-document; die
+   houdt zijn eigen kleur. Zonder deze uitzondering wint dit over .kennis-tag
+   en werd het label grijs in plaats van donkerpruim. */
+.legal-page .legal-document > p:not(.kennis-tag),
 .legal-page .legal-document > ul {
     color: var(--color-text-light);
 }
@@ -1604,13 +1607,22 @@ main > section:last-of-type#contact-grid .contact-booking {
     display: block;
 }
 
-/* ---- Tag / meta ---- */
+/* ---- Tag / meta ----
+   De pill stond verspreid over vier losse .kennis-tag-blokken verderop in dit
+   bestand, zonder padding: de achtergrond sloot strak om de letters en de
+   border-radius was daardoor niet te zien. Alles staat nu hier bij elkaar. */
 .kennis-tag {
     display: inline-block;
-    color: var(--color-primary);
+    align-self: flex-start;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: var(--space-sm);
+    background-color: var(--surface-steun);
+    color: var(--color-dark);
     font-size: var(--fs-xs);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.08em;
+    line-height: 1.4;
     text-transform: uppercase;
 }
 
@@ -1778,7 +1790,9 @@ main > section:last-of-type#contact-grid .contact-booking {
     margin-bottom: var(--space-xs);
 }
 
-.kennis-article p {
+/* De labelpill is ook een p; die houdt zijn eigen kleur. Zelfde uitzondering
+   als bij .kennis-card-body en .kennis-featured-text hierboven. */
+.kennis-article p:not(.kennis-tag) {
     color: var(--color-text-light);
 }
 
@@ -1992,24 +2006,25 @@ main > section:last-of-type#contact-grid .contact-booking {
     line-height: 1.5;
 }
 
-/* ---- Labelkleuren (pill-stijl van de site, per thema een tint) ---- */
-.kennis-tag {
-    margin-bottom: var(--space-sm);
-}
-
-[data-label="it-adoptie"] .kennis-tag {
-    background-color: var(--color-accent-light);
-    color: var(--color-primary);
-}
-
-[data-label="lerende-organisatie"] .kennis-tag {
-    background-color: var(--surface-steun);
-    color: var(--color-dark);
+/* ---- Labelkleuren ----
+   Elk label uit de CMS-map labels/ heeft een eigen tint, van licht naar
+   donker zodat ze ook naast elkaar uit elkaar te houden zijn. Digitale
+   vaardigheden is het meest gebruikte label en daarom het rustigst. De tekst
+   is overal --color-dark: op de donkerste tint haalt pruim de 4,5 niet. */
+[data-label="digitale-vaardigheden"] .kennis-tag {
+    background-color: #EFE3E9;   /* 11,7 : 1 */
 }
 
 [data-label="e-learning"] .kennis-tag {
-    background-color: var(--color-saar-pink-soft);
-    color: var(--color-primary);
+    background-color: var(--color-saar-pink-soft);   /* 10,6 : 1 */
+}
+
+[data-label="it-adoptie"] .kennis-tag {
+    background-color: var(--color-accent-light);   /* 9,5 : 1 */
+}
+
+[data-label="lerende-organisatie"] .kennis-tag {
+    background-color: #D3B4C3;   /* 7,7 : 1 */
 }
 
 /* ---- Featured met zacht verloop ---- */
@@ -2031,25 +2046,6 @@ main > section:last-of-type#contact-grid .contact-booking {
 .kennis-card:hover .kennis-lees,
 .kennis-featured:hover .kennis-lees {
     color: var(--color-primary-light);
-}
-
-.kennis-tag {
-    align-self: flex-start;
-}
-
-/* ---- Pills: volledig rond en duidelijke tinten ---- */
-.kennis-tag {
-    border-radius: 999px;
-}
-
-[data-label="lerende-organisatie"] .kennis-tag {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-}
-
-[data-label="lerende-organisatie"] .kennis-tag {
-    background-color: #E7D8E0;
-    color: var(--color-dark);
 }
 
 /* ---- Toon alle artikelen + labelfilter ---- */
