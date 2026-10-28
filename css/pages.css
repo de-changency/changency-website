@@ -87,19 +87,20 @@ main {
     text-align: center;
 }
 
-#herkenning h2 {
-    color: var(--color-primary);
+#herkenning .uitspraak h2 {
+    color: var(--on-diep-kop);
     margin-bottom: var(--space-title-to-lead);
 }
 
-#herkenning p {
+#herkenning .uitspraak p {
     font-size: var(--fs-md);
     line-height: 1.7;
-    color: var(--color-text-light);
+    color: var(--on-diep-body);
 }
 
-#herkenning p:last-child {
-    color: var(--color-dark);
+/* De slotzin is de kern; op het paneel krijgt die wit in plaats van donker. */
+#herkenning .uitspraak p:last-child {
+    color: var(--on-diep-kop);
     font-weight: var(--fw-medium);
 }
 
@@ -190,32 +191,45 @@ main {
     font-size: var(--fs-sm);
 }
 
-/* ---- SAAR Insights ---- */
+/* ---- SAAR Insights ----
+   Dit blok hoort bij het andere merk en houdt daarom zijn eigen roze vlak met
+   roze rand. Het vlak zit op .saar-paneel en niet op de sectie: op de sectie
+   besloeg het de volle schermbreedte, waardoor de rand en de ronde hoeken aan
+   de schermranden zaten en nooit te zien waren. */
 #saar-insights,
 section#saar {
     text-align: center;
-    position: relative;
-    border: 1px solid var(--color-saar-pink-soft);
-    border-radius: var(--border-radius-lg);
-    background: #F9EFF4;
+    /* De rand van het paneel is al de scheiding, dus hier geen haarlijn. */
+    border-top: 0;
 }
 
-#saar-insights h3,
-section#saar h3 {
+.saar-paneel {
+    background: var(--surface-saar);
+    border: 1px solid var(--color-saar-pink-soft);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .saar-paneel {
+        padding: var(--space-2xl);
+    }
+}
+
+.saar-paneel h3 {
     color: var(--color-saar-pink-dark);
     margin-bottom: var(--space-xl);
 }
 
-#saar-insights p,
-section#saar p {
+.saar-paneel p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
 
-#saar-insights > a,
-section#saar > a,
-#saar-insights > div > a,
-section#saar > div > a {
+.saar-paneel > a {
     display: inline-block;
     color: var(--color-saar-pink-dark);
     font-weight: var(--fw-semibold);
@@ -224,10 +238,7 @@ section#saar > div > a {
     transition: color var(--transition-fast);
 }
 
-#saar-insights > a:hover,
-section#saar > a:hover,
-#saar-insights > div > a:hover,
-section#saar > div > a:hover {
+.saar-paneel > a:hover {
     color: var(--color-saar-pink);
 }
 
@@ -384,8 +395,9 @@ section#saar > div > a:hover {
 .testimonials-carousel__track.quotes blockquote {
     background-color: var(--color-white);
     padding: var(--space-2xl);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
     margin: 0;
 }
 
@@ -541,8 +553,9 @@ section#saar > div > a:hover {
     scroll-margin-top: calc(var(--header-height) + var(--space-md));
     background-color: var(--color-white);
     padding: var(--space-2xl);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
     margin-bottom: var(--space-2xl);
     max-width: var(--container-max);
     margin-left: auto;
@@ -616,6 +629,7 @@ section#saar > div > a:hover {
 #cta {
     text-align: center;
     background-color: var(--color-primary) !important;
+    border-top: 0;
     color: var(--color-white);
     border-top-left-radius: var(--border-radius-lg);
     border-top-right-radius: var(--border-radius-lg);
@@ -852,8 +866,9 @@ main > section:last-of-type#contact-grid .contact-booking {
 .resultaten-grid > div {
     background-color: var(--color-white);
     padding: var(--space-xl);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
     transition: transform var(--transition-base);
     max-width: none;
     margin: 0;
@@ -970,10 +985,9 @@ main > section:last-of-type#contact-grid .contact-booking {
     border-radius: var(--border-radius-lg);
 }
 
-/* Principes (Over-pagina): bijlage — titelregel (bold) + body eronder, lijnen, crème */
+/* Principes (Over-pagina): titelregel (bold) + body eronder, lijnen, op het steunvlak */
 #statements.principles-section {
     text-align: left;
-    background-color: #FDFBF7;
 }
 
 /* Smalle kolom; grid zodat h2 uitlijnt met tekstkolom (niet met cijfers) */
@@ -1176,8 +1190,9 @@ main > section:last-of-type#contact-grid .contact-booking {
 .contact-item {
     background-color: var(--color-white);
     padding: var(--space-xl);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
 }
 
 .contact-item h3 {
@@ -1217,7 +1232,7 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 .contact-booking {
-    background-color: var(--color-bg-alt);
+    background-color: var(--surface-steun);
     padding: var(--space-2xl);
     border-radius: var(--border-radius);
     text-align: center;
@@ -1428,7 +1443,7 @@ main > section:last-of-type#contact-grid .contact-booking {
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     color: var(--color-dark);
-    background-color: var(--color-bg-alt);
+    background-color: var(--surface-steun);
 }
 
 .legal-page table.legal-table td code {
@@ -1836,7 +1851,7 @@ main > section:last-of-type#contact-grid .contact-booking {
 .kennis-share-icons a:hover {
     border-color: var(--color-primary-light);
     color: var(--color-primary);
-    background: var(--color-bg-alt);
+    background: var(--surface-steun);
     text-decoration: none;
 }
 
@@ -1852,7 +1867,7 @@ main > section:last-of-type#contact-grid .contact-booking {
     gap: var(--space-md);
     margin-top: var(--space-xl);
     padding: var(--space-lg) var(--space-xl);
-    background: var(--color-bg-alt);
+    background: var(--surface-steun);
     border-radius: var(--border-radius-lg);
 }
 
@@ -1988,7 +2003,7 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 [data-label="lerende-organisatie"] .kennis-tag {
-    background-color: var(--color-bg-alt);
+    background-color: var(--surface-steun);
     color: var(--color-dark);
 }
 
@@ -2060,24 +2075,12 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 /* ---- Logobalk: corporaties die met de Changency werken (homepage) ---- */
-/* De logobalk is als extra sectie tussengevoegd; de nth-child-afwisseling van
-   base.css verschuift daardoor. Hieronder de oorspronkelijke afwisseling expliciet hersteld. */
-#logo-bar,
-#trajecten,
-#saar-insights {
-  background-color: transparent;
-}
-
-#herkenning,
-#methode,
-#testimonials {
-  background-color: var(--color-bg-alt);
-}
-
 #logo-bar {
   padding-top: 0;
   padding-bottom: var(--space-3xl);
   text-align: center;
+  /* De logo's horen visueel bij de hero, dus hier geen scheidingslijn. */
+  border-top: 0;
 }
 
 #logo-bar div {
@@ -2132,3 +2135,25 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 
+/* ---- Kader: doorverwijzing naar een andere pagina ----
+   Een verwijzing van een paar regels hoort niet dezelfde ruimte te krijgen als
+   een volledige sectie. Een pruimen kantlijn is genoeg om het als zijpad te
+   markeren; een vlak eronder zou botsen met het steunvlak dat er vaak op volgt. */
+.kader {
+    border-left: 3px solid var(--color-primary);
+    padding-left: var(--space-lg);
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kader h2,
+.kader h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.kader p {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+}
