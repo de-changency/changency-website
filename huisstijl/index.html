@@ -21,9 +21,10 @@
       --color-dark: #3D1F2E;
       --color-text: #2D2D2D;
       --color-text-light: #6B6B6B;
-      --color-bg: #FAFAF8;
-      --color-bg-alt: #F3F0EE;
-      --color-border: #E5E0DC;
+      --color-bg: #FFFFFF;
+      --surface-steun: #F3EBEF;
+      --surface-steun-line: #E8D8E0;
+      --color-border: #ECDFE6;
       --color-white: #FFFFFF;
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Inter', sans-serif;
@@ -176,7 +177,7 @@
       font-family: var(--font-heading);
       font-weight: 600;
       color: var(--color-dark);
-      background: var(--color-bg-alt);
+      background: var(--surface-steun);
     }
 
     .logo-row {
@@ -241,7 +242,7 @@
     }
 
     .export-tip {
-      background: linear-gradient(135deg, var(--color-saar-pink-soft) 0%, var(--color-bg-alt) 100%);
+      background: linear-gradient(135deg, var(--color-saar-pink-soft) 0%, var(--surface-steun) 100%);
       border: 1px solid var(--color-saar-pink-soft);
       border-radius: var(--radius-lg);
       padding: 1.25rem 1.5rem;
@@ -399,34 +400,35 @@
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background:#FAFAF8;border-bottom:1px solid #eee"></div>
-        <div class="swatch-info">
-          <span class="swatch-name">Achtergrond</span>
-          <span class="swatch-hex">#FAFAF8</span>
-        </div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#F3F0EE"></div>
-        <div class="swatch-info">
-          <span class="swatch-name">Achtergrond alt.</span>
-          <span class="swatch-hex">#F3F0EE<br>Afwisselende secties</span>
-        </div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#E5E0DC"></div>
-        <div class="swatch-info">
-          <span class="swatch-name">Rand</span>
-          <span class="swatch-hex">#E5E0DC</span>
-        </div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #E5E0DC"></div>
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #ECDFE6"></div>
         <div class="swatch-info">
           <span class="swatch-name">Wit</span>
-          <span class="swatch-hex">#FFFFFF</span>
+          <span class="swatch-hex">#FFFFFF<br>Basis van elke pagina</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F3EBEF"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Steunvlak</span>
+          <span class="swatch-hex">#F3EBEF<br>Pruim op 10%, grond onder kaarten</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ECDFE6"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Rand</span>
+          <span class="swatch-hex">#ECDFE6<br>Pruim op 16%, haarlijnen en kaartranden</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8D8E0"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Rand op steunvlak</span>
+          <span class="swatch-hex">#E8D8E0<br>Pruim op 20%</span>
         </div>
       </div>
     </div>
+    <p class="note">De oppervlakken zijn geen aparte kleuren maar dezelfde pruim #8B3A62 in een ander percentage over wit. Daardoor kan er niets vloeken. Een sectie krijgt alleen een steunvlak als er kaarten op staan of als het blok even rust geeft; de rest is wit met een haarlijn ertussen.</p>
 
     <h3>RGB (voor drukwerk en Office)</h3>
     <table>
@@ -438,7 +440,8 @@
         <tr><td>Primair licht</td><td>#A85080</td><td>168, 80, 128</td></tr>
         <tr><td>Donker (koppen)</td><td>#3D1F2E</td><td>61, 31, 46</td></tr>
         <tr><td>Tekst</td><td>#2D2D2D</td><td>45, 45, 45</td></tr>
-        <tr><td>Achtergrond</td><td>#FAFAF8</td><td>250, 250, 248</td></tr>
+        <tr><td>Achtergrond</td><td>#FFFFFF</td><td>255, 255, 255</td></tr>
+        <tr><td>Steunvlak</td><td>#F3EBEF</td><td>243, 235, 239</td></tr>
       </tbody>
     </table>
     <p class="note">Voor professioneel drukwerk: vraag een drukker naar CMYK- of PMS-profielen op basis van deze RGB/hex; scherm en papier wijken altijd iets af.</p>
@@ -493,7 +496,7 @@
 
     <h2>7. Andere media (checklist)</h2>
     <ul>
-      <li><strong>PowerPoint / Keynote:</strong> titels in Plus Jakarta Sans, body in Inter; achtergrond #FAFAF8 of wit; accenten met #8B3A62.</li>
+      <li><strong>PowerPoint / Keynote:</strong> titels in Plus Jakarta Sans, body in Inter; achtergrond wit of #F3EBEF; accenten met #8B3A62.</li>
       <li><strong>Word / PDF:</strong> embed fonts of gebruik systeemfallbacks (Calibri alleen als noodoplossing; liever fonts installeren).</li>
       <li><strong>E-mailhandtekening:</strong> beperk tot webveilige stacks of kleine afbeelding voor logo; tekstkleur #2D2D2D of #3D1F2E, link #8B3A62.</li>
       <li><strong>Social / advertenties:</strong> zelfde primair en donkerbruin voor herkenning; SAAR-roze alleen in SAAR-context.</li>
