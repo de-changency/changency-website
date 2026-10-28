@@ -685,15 +685,18 @@ main > section:last-of-type#contact-grid .contact-booking {
    DIENSTEN OVERZICHT
    ============================================= */
 
-#diensten-intro {
+#diensten-intro,
+#samenwerken {
     text-align: center;
 }
 
-#diensten-intro h1 {
+#diensten-intro h1,
+#samenwerken h2 {
     margin-bottom: var(--space-title-to-lead);
 }
 
-#diensten-intro p:not(.label) {
+#diensten-intro p:not(.label),
+#samenwerken p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
@@ -729,6 +732,11 @@ main > section:last-of-type#contact-grid .contact-booking {
 .traject-card p {
     line-height: 1.7;
     color: var(--color-text-light);
+}
+
+.traject-card .kaart-intro {
+    color: var(--color-text);
+    font-weight: var(--fw-semibold);
 }
 
 .voor-wie-label {
