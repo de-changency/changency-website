@@ -26,7 +26,7 @@
        steun     10%      grond onder kaarten en rasters
        steun-line 20%     kaartrand op het steunvlak
        border    16%      haarlijn tussen witte secties, kaartrand op wit
-       diep      donker   uitspraakpaneel, binnen de tekstkolom
+       steun     licht    uitspraakpaneel, binnen de tekstkolom
        primary   100%     knoppen, links, labels en de CTA onderaan        */
   --color-bg:             #FFFFFF;
   --surface-steun:        #F3EBEF;
@@ -36,11 +36,6 @@
   /* Het SAAR-paneel hoort bij het andere merk en staat los van de pruimladder. */
   --surface-saar:         #F9EFF4;
 
-  /* Tekst op het donkere uitspraakpaneel (--color-dark, #3D1F2E) */
-  --on-diep-kop:          #FFFFFF;   /* 14,7 : 1 */
-  --on-diep-body:         #E3D2DA;   /* 10,1 : 1 */
-  --on-diep-link:         #E9BECB;   /*  8,9 : 1 */
-  --on-diep-line:         rgba(255, 255, 255, 0.14);
 
   /* ---- Fonts ---- */
   --font-heading: 'Plus Jakarta Sans', sans-serif;

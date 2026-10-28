@@ -903,16 +903,33 @@ main > section:last-of-type#contact-grid .contact-booking {
     margin-bottom: var(--space-title-to-lead);
 }
 
-#voor-wie {
+#toepassingen > .sectie-intro {
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+#voor-wie,
+#interventieadvies,
+#opbrengst {
     text-align: center;
 }
 
-#voor-wie p {
+#interventieadvies h2,
+#opbrengst h2 {
+    margin-bottom: var(--space-title-to-lead);
+}
+
+#voor-wie p,
+#interventieadvies p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
 
-#voor-wie ul {
+#voor-wie ul,
+#opbrengst ul {
     list-style: disc;
     text-align: left;
     max-width: 600px;
@@ -920,7 +937,12 @@ main > section:last-of-type#contact-grid .contact-booking {
     padding-left: var(--space-lg);
 }
 
-#voor-wie ul li {
+#opbrengst ul {
+    margin-top: 0;
+}
+
+#voor-wie ul li,
+#opbrengst ul li {
     line-height: 1.7;
     margin-bottom: var(--space-sm);
     color: var(--color-text);
