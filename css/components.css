@@ -486,12 +486,13 @@ footer {
 }
 
 /* ---- UITSPRAAKPANEEL ----
-   Het donkere vlak voor de scherpste zin van een pagina. Staat bewust binnen
+   Het lichte steunvlak voor de scherpste zin van een pagina. Staat bewust binnen
    de tekstkolom en niet van rand tot rand: daarmee houdt het zijn kracht en
    blijft de witte marge aan weerszijden doorlopen. Alleen tekst, geen kaarten
    en geen opsommingen, en hoogstens één per pagina. */
 .uitspraak {
-    background-color: var(--color-dark);
+    background-color: var(--surface-steun);
+    border: 1px solid var(--surface-steun-line);
     border-radius: var(--border-radius-lg);
     /* Op mobiel blijft er anders te weinig regellengte over binnen het paneel. */
     padding: var(--space-lg);
@@ -507,36 +508,36 @@ footer {
 
 .uitspraak h2,
 .uitspraak h3 {
-    color: var(--on-diep-kop);
+    color: var(--color-primary);
     margin-bottom: var(--space-lg);
 }
 
 .uitspraak p,
 .uitspraak li {
-    color: var(--on-diep-body);
+    color: var(--color-text);
 }
 
 .uitspraak .label {
-    color: var(--on-diep-link);
+    color: var(--color-primary);
 }
 
 .uitspraak a {
-    color: var(--on-diep-link);
+    color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
 .uitspraak a:hover {
-    color: var(--color-white);
+    color: var(--color-primary-light);
 }
 
 main .uitspraak a:focus-visible {
-    outline-color: var(--color-white);
+    outline-color: var(--color-primary);
 }
 
 .uitspraak hr {
     border: 0;
-    border-top: 1px solid var(--on-diep-line);
+    border-top: 1px solid var(--surface-steun-line);
 }
 
 @media (min-width: 768px) {
