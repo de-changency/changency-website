@@ -1164,15 +1164,18 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 /* Vision */
-#visie {
+#visie,
+#saar-ontstaan {
     text-align: center;
 }
 
-#visie > h2 {
+#visie > h2,
+#saar-ontstaan > h2 {
     margin-bottom: var(--space-title-to-lead);
 }
 
-#visie p {
+#visie p,
+#saar-ontstaan p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
