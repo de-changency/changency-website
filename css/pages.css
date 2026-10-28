@@ -57,6 +57,10 @@ main {
     max-width: 540px;
 }
 
+#hero p:not(:last-of-type) {
+    margin-bottom: var(--space-md);
+}
+
 #hero > div:first-child > a {
     display: inline-block;
     background-color: var(--color-primary);
@@ -80,28 +84,6 @@ main {
     aspect-ratio: 1080 / 1079;
     object-fit: cover;
     border-radius: var(--border-radius-lg);
-}
-
-/* ---- Herkenning ---- */
-#herkenning {
-    text-align: center;
-}
-
-#herkenning .uitspraak h2 {
-    color: var(--on-diep-kop);
-    margin-bottom: var(--space-title-to-lead);
-}
-
-#herkenning .uitspraak p {
-    font-size: var(--fs-md);
-    line-height: 1.7;
-    color: var(--on-diep-body);
-}
-
-/* De slotzin is de kern; op het paneel krijgt die wit in plaats van donker. */
-#herkenning .uitspraak p:last-child {
-    color: var(--on-diep-kop);
-    font-weight: var(--fw-medium);
 }
 
 /* ---- Trajecten (Services) ---- */
@@ -145,6 +127,15 @@ main {
 .cards article p {
     color: var(--color-text-light);
     line-height: 1.7;
+}
+
+.cards article p + p {
+    margin-top: var(--space-sm);
+}
+
+.cards article .kaart-intro {
+    color: var(--color-text);
+    font-weight: var(--fw-semibold);
 }
 
 .cards article > a {
@@ -227,6 +218,10 @@ section#saar {
 .saar-paneel p {
     color: var(--color-text-light);
     line-height: 1.7;
+}
+
+.saar-paneel p + p {
+    margin-top: var(--space-sm);
 }
 
 .saar-paneel > a {
@@ -690,15 +685,18 @@ main > section:last-of-type#contact-grid .contact-booking {
    DIENSTEN OVERZICHT
    ============================================= */
 
-#diensten-intro {
+#diensten-intro,
+#samenwerken {
     text-align: center;
 }
 
-#diensten-intro h1 {
+#diensten-intro h1,
+#samenwerken h2 {
     margin-bottom: var(--space-title-to-lead);
 }
 
-#diensten-intro p:not(.label) {
+#diensten-intro p:not(.label),
+#samenwerken p {
     color: var(--color-text-light);
     line-height: 1.7;
 }
@@ -734,6 +732,11 @@ main > section:last-of-type#contact-grid .contact-booking {
 .traject-card p {
     line-height: 1.7;
     color: var(--color-text-light);
+}
+
+.traject-card .kaart-intro {
+    color: var(--color-text);
+    font-weight: var(--fw-semibold);
 }
 
 .voor-wie-label {
