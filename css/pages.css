@@ -1268,6 +1268,12 @@ main > section:last-of-type#contact-grid .contact-booking {
     max-width: 32rem;
 }
 
+@media (min-width: 768px) {
+    .tekst-beeld-tekst {
+        justify-self: end;
+    }
+}
+
 .tekst-beeld-kader {
     display: none;
     position: relative;
@@ -1298,7 +1304,8 @@ main > section:last-of-type#contact-grid .contact-booking {
 
 @media (min-width: 768px) {
     .tekst-beeld {
-        grid-template-columns: minmax(0, 11fr) minmax(0, 10fr);
+        /* Beeld links, tekst rechts: het blok erboven heeft de foto al rechts. */
+        grid-template-columns: minmax(0, 10fr) minmax(0, 11fr);
         gap: var(--space-2xl);
     }
 
