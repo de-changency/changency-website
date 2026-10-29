@@ -229,6 +229,31 @@ section#saar {
 }
 
 .saar-paneel a.saar-link,
+/* Klantcitaat in het SAAR-paneel: één zin met bronvermelding, geen aanhalingsteken
+   als versiering en geen kader. De tekst eromheen draagt het blok al. */
+.saar-citaat {
+    margin: var(--space-lg) 0 0;
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-saar-pink-soft);
+    max-width: 32rem;
+}
+
+.saar-citaat blockquote {
+    margin: 0;
+}
+
+.saar-citaat p {
+    color: var(--color-dark);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: var(--space-xs);
+}
+
+.saar-citaat figcaption {
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+}
+
 .saar-paneel > a,
 .saar-paneel-tekst > a {
     display: inline-block;
