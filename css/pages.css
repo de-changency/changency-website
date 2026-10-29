@@ -230,7 +230,9 @@ section#saar {
 
 .saar-paneel a.saar-link,
 /* Klantcitaat in het SAAR-paneel: één zin met bronvermelding, geen aanhalingsteken
-   als versiering en geen kader. De tekst eromheen draagt het blok al. */
+   als versiering en geen kader. De tekst eromheen draagt het blok al. Het citaat
+   gaat over het platform en staat daarom onder het schermbeeld, in dezelfde
+   kolom; op mobiel is het beeld weg en volgt het citaat op de tekst. */
 .saar-citaat {
     margin: var(--space-lg) 0 0;
     padding-left: var(--space-md);
@@ -288,6 +290,35 @@ section#saar {
 
 .saar-paneel-tekst {
     max-width: 32rem;
+}
+
+/* Rechterkolom: schermbeeld met het citaat eronder. */
+.saar-paneel-beeldkolom {
+    min-width: 0;
+}
+
+/* Op mobiel staan de kolommen onder elkaar en zou het citaat na de link komen.
+   De link hoort het blok af te sluiten, dus daar schuift het citaat ervoor:
+   de tekstkolom valt weg als doos (display: contents) zodat haar kinderen zelf
+   rasteritems worden en de link als laatste kan staan. De onderlinge afstanden
+   komen van de marges van de elementen, vandaar gap: 0. */
+@media (max-width: 767px) {
+    .saar-paneel-beeldcitaat {
+        gap: 0;
+    }
+
+    .saar-paneel-beeldcitaat .saar-paneel-tekst {
+        display: contents;
+    }
+
+    .saar-paneel-beeldcitaat .saar-paneel-beeldkolom {
+        order: 1;
+    }
+
+    .saar-paneel-beeldcitaat .saar-paneel-tekst > a {
+        order: 2;
+        justify-self: start;
+    }
 }
 
 /* Op mobiel geen schermbeeld: te klein om leesbaar te zijn, dus alleen tekst. */
