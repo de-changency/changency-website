@@ -5,7 +5,7 @@ module.exports = {
   key: 'changency',
   name: 'De Changency',
   domain: 'https://www.de-changency.nl',
-  ogDefault: 'https://www.de-changency.nl/images/og-image.png',
+  ogDefault: 'https://www.de-changency.nl/images/og-changency.png',
   bookingUrl:
     'https://outlook.office.com/bookwithme/user/3ba84f5275a04a53a552e55d74b078a3@de-changency.nl/meetingtype/CZYwrjTpFEqelQYrEpkcug2?anonymous&ep=mcard',
   ctaDefault: {
