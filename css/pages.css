@@ -2057,8 +2057,7 @@ main > section:last-of-type#contact-grid .contact-booking {
     width: 84px;
     height: 84px;
     border-radius: 50%;
-    background: #FCE7F3; /* zachte roze cirkel, zelfde uitsnede als contactpagina SAAR */
-    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+    background: var(--color-white); /* wit op het steunvlak, zoals op de contactpagina */
     overflow: hidden;
     flex-shrink: 0;
 }

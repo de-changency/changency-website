@@ -15,7 +15,7 @@ module.exports = {
   },
   // Cache-bust-versies van de CSS/JS (gelijk houden aan de bestaande pagina's;
   // pages.css is v18 omdat de kennis-stijlen daarin nieuw zijn)
-  cssVersions: { variables: 33, base: 33, components: 33, pages: 33 },
+  cssVersions: { variables: 33, base: 33, components: 33, pages: 40 },
   jsVersion: 5,
   // Bestaande statische pagina's (voor sitemap.xml) — nieuwe pagina hier bijschrijven
   pages: [
