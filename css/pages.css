@@ -1225,13 +1225,11 @@ main > section:last-of-type#contact-grid .contact-booking {
 }
 
 /* Vision */
-#visie,
-#saar-ontstaan {
+#visie {
     text-align: center;
 }
 
-#visie > h2,
-#saar-ontstaan > h2 {
+#visie > h2 {
     margin-bottom: var(--space-title-to-lead);
 }
 
@@ -1239,6 +1237,74 @@ main > section:last-of-type#contact-grid .contact-booking {
 #saar-ontstaan p {
     color: var(--color-text-light);
     line-height: 1.7;
+}
+
+/* ---- Tekst naast schermbeeld (Over: De ontwikkeling van SAAR Insights) ----
+   Zelfde kader als het SAAR-paneel op de homepage, maar op wit en zonder vlak.
+   Op mobiel alleen de tekst. */
+#saar-ontstaan {
+    text-align: left;
+}
+
+#saar-ontstaan h2 {
+    margin-bottom: var(--space-lg);
+}
+
+#saar-ontstaan p + p {
+    margin-top: var(--space-sm);
+}
+
+.tekst-beeld {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tekst-beeld-tekst {
+    max-width: 32rem;
+}
+
+.tekst-beeld-kader {
+    display: none;
+    position: relative;
+    background: var(--color-white);
+    border: 1px solid var(--color-saar-pink-soft);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    max-height: 420px;
+}
+
+.tekst-beeld-kader img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tekst-beeld-kader::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-white));
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .tekst-beeld {
+        grid-template-columns: minmax(0, 11fr) minmax(0, 10fr);
+        gap: var(--space-2xl);
+    }
+
+    .tekst-beeld-kader {
+        display: block;
+    }
 }
 
 
