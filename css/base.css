@@ -199,6 +199,14 @@ main > section.ruim {
   padding-block: var(--space-4xl);
 }
 
+/* Een sectie waarin één gevuld paneel staat, zoals het SAAR-blok, heeft zelf
+   bijna geen lucht nodig: het paneel brengt met zijn eigen binnenruimte al
+   ruim ruimte mee. Met de volle sectiepadding erbij werd de witruimte tussen
+   de vorige sectie en de eerste regel in het paneel ruim 200 pixel. */
+main > section.paneel {
+  padding-block: var(--space-md);
+}
+
 @media (min-width: 768px) {
   main > section.compact {
     padding-block: var(--space-3xl);
@@ -206,6 +214,10 @@ main > section.ruim {
 
   main > section.ruim {
     padding-block: var(--space-5xl);
+  }
+
+  main > section.paneel {
+    padding-block: var(--space-lg);
   }
 }
 
