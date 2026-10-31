@@ -2327,12 +2327,11 @@ main > section:last-of-type#contact-grid .contact-booking {
   text-align: center;
 }
 
-/* Acht logo's op één regel wegen zwaarder dan vier. Een stap kleiner houdt de
-   balk ondergeschikt aan de hero erboven en laat lucht over aan weerszijden. */
-.logobalk.veel-logos {
-  --logo-wide: 23px;
-  --logo-square: 39px;
-  --logo-stacked: 33px;
+/* Een hero die door een logobalk wordt gevolgd, heeft onderaan minder lucht
+   nodig. Met de volle sectiepadding eronder zweeft de balk los tussen twee
+   secties in, terwijl hij bij de hero hoort. */
+main > section.ruim:has(+ .logobalk) {
+  padding-bottom: var(--space-2xl);
 }
 
 /* De logo's horen visueel bij de hero, dus geen haarlijn tussen die twee.
@@ -2342,11 +2341,14 @@ main > section:not([class*="surface-"]) + section.logobalk {
   border-top: 0;
 }
 
+/* De zin draagt de claim, dus hij staat in de gewone tekstkleur en niet in het
+   grijs van een bijschrift. Vet zou hem zwaarder maken dan de lopende tekst in
+   de hero erboven, die zelf grijs is. */
 .logobalk > p {
   max-width: 46rem;
   margin: 0 auto var(--space-lg);
   font-size: var(--fs-sm);
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .logobalk > div {
@@ -2401,10 +2403,7 @@ main > section:not([class*="surface-"]) + section.logobalk {
     justify-content: center;
   }
 
-  /* Op telefoonbreedte breekt elke balk af in meerdere rijen, dus daar gelden
-     dezelfde maten ongeacht het aantal logo's. */
-  .logobalk,
-  .logobalk.veel-logos {
+  .logobalk {
     --logo-wide: 20px;
     --logo-square: 34px;
     --logo-stacked: 30px;
