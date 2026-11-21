@@ -1147,6 +1147,50 @@ main > section:last-of-type#contact-grid .contact-booking {
     border-radius: var(--border-radius-lg);
 }
 
+/* Recensies onder de intro (Over-pagina): twee vaste kaarten in dezelfde
+   opmaak als op de homepage, zonder carrousel. De pagina is kort, dus twee
+   stemmen volstaan: een oud-directeur over Ilse als collega en een klant. */
+#over-citaat {
+    text-align: center;
+}
+
+#over-citaat > h2 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.over-quotes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+    text-align: left;
+}
+
+.over-quotes blockquote {
+    padding: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .over-quotes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.over-citaat__meer {
+    margin-top: var(--space-xl);
+}
+
+.over-citaat__meer a {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.over-citaat__meer a:hover {
+    color: var(--color-primary-light);
+}
+
 /* Principes (Over-pagina): titelregel (bold) + body eronder, lijnen, op het steunvlak */
 #statements.principles-section {
     text-align: left;
