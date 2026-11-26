@@ -601,6 +601,11 @@ section#saar {
 
 /* Mobiel: avatar boven naam/functie zodat de tekst de volle kaartbreedte krijgt */
 @media (max-width: 768px) {
+    .quotes blockquote,
+    .testimonials-carousel__track.quotes blockquote {
+        padding: var(--space-lg);
+    }
+
     .quotes blockquote footer,
     .testimonials-carousel__track.quotes blockquote footer {
         flex-direction: column;
@@ -615,19 +620,14 @@ section#saar {
     }
 }
 
-@media (max-width: 480px) {
+/* Mobiel: geen pijlknoppen, de kaart krijgt de volle breedte (vegen en de bolletjes blijven) */
+@media (max-width: 768px) {
     .testimonials-carousel__btn {
-        width: 38px;
-        height: 38px;
-    }
-
-    .testimonials-carousel__btn svg {
-        width: 18px;
-        height: 18px;
+        display: none;
     }
 
     .testimonials-carousel__viewport {
-        margin: 0 clamp(2.75rem, 10vw, 3.5rem);
+        margin: 0;
     }
 }
 
@@ -1168,6 +1168,26 @@ main > section:last-of-type#contact-grid .contact-booking {
 
 .over-quotes blockquote {
     padding: var(--space-xl);
+}
+
+/* Mobiel: de kaart is hier schermbreed, dus de foto past naast de naam */
+@media (max-width: 767px) {
+    .over-quotes {
+        gap: var(--space-md);
+    }
+
+    .over-quotes blockquote {
+        padding: var(--space-lg);
+    }
+
+    .over-quotes blockquote > p {
+        margin-bottom: var(--space-md);
+    }
+
+    .over-quotes blockquote footer {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 @media (min-width: 768px) {
